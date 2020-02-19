@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="439.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.AdminController">
+
+   <children>
+      <Button fx:id="btn_LogementAdmin" layoutX="113.0" layoutY="108.0" mnemonicParsing="false" onAction="#LogementAdmin" prefHeight="49.0" prefWidth="145.0" text="Logement Admin" />
+      <Button fx:id="btn_ResLogementAdmin" layoutX="340.0" layoutY="108.0" mnemonicParsing="false" onAction="#ResLogementAdmin" prefHeight="49.0" prefWidth="145.0" text="ResLogement Admin" />
+      <Button fx:id="btn_ResRestaurantAdmin" layoutX="340.0" layoutY="220.0" mnemonicParsing="false" onAction="#ResRestaurantAdmin" prefHeight="49.0" prefWidth="145.0" text="ResRestaurant Admin" />
+      <Button fx:id="btn_RestaurantAdmin" layoutX="113.0" layoutY="220.0" mnemonicParsing="false" onAction="#RestaurantAdmin" prefHeight="49.0" prefWidth="145.0" text="Restaurant Admin" />
+      <Button fx:id="btn_RetourAdmin" layoutX="14.0" layoutY="368.0" mnemonicParsing="false" onAction="#RetourAdmin" prefHeight="49.0" prefWidth="74.0" text="Retour" />
+   </children>
+</AnchorPane>

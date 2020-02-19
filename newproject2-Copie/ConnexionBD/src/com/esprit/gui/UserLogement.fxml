@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.UserLogementController">
+   <children>
+      <ImageView fx:id="Img_imggBackgUser" fitHeight="654.0" fitWidth="951.0" layoutX="-107.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/black%20mat.png" />
+         </image>
+      </ImageView>
+      <TabPane layoutX="5.0" layoutY="14.0" prefHeight="563.0" prefWidth="742.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Afficher Les Logements">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="534.0" prefWidth="729.0">
+                     <children>
+                        <TableView fx:id="tab_AfficherLogUser" layoutX="2.0" layoutY="13.0" prefHeight="381.0" prefWidth="748.0">
+                           <columns>
+                              <TableColumn fx:id="col_Nom" prefWidth="135.0" text="Nom" />
+                              <TableColumn fx:id="col_Lieu" prefWidth="167.0" text="Lieu" />
+                              <TableColumn fx:id="col_Descr" prefWidth="303.0" text="Description" />
+                              <TableColumn fx:id="col_Prix" prefWidth="142.0" text="Prix Nuite" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="tf_RechecherLogement" layoutX="21.0" layoutY="421.0" prefHeight="25.0" prefWidth="123.0" />
+                        <Button fx:id="btn_RechercherLogUser" layoutX="207.0" layoutY="421.0" mnemonicParsing="false" onAction="#RechercherLogUser" prefHeight="25.0" prefWidth="89.0" text="Rechercher " />
+                        <Button fx:id="btn_TrierLieuUser" layoutX="656.0" layoutY="421.0" mnemonicParsing="false" onAction="#TrierLieuUser" prefHeight="25.0" prefWidth="84.0" text="Trier Lieu" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

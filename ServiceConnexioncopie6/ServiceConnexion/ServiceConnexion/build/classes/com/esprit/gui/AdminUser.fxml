@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="629.0" prefWidth="1163.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.esprit.gui.AdminUserController">
+   <children>
+      <Button fx:id="buser" layoutX="458.0" layoutY="299.0" mnemonicParsing="false" onAction="#user" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="152.0" styleClass="button2" stylesheets="@../../../../../../../../Desktop/Projets/keeptoo/JavaFX-MySQL-Login-master/src/styling/fullpackstyling.css" text="User" />
+      <Button fx:id="badmin" layoutX="458.0" layoutY="201.0" mnemonicParsing="false" onAction="#admin" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="152.0" styleClass="button2" stylesheets="@../../../../../../../../Desktop/Projets/keeptoo/JavaFX-MySQL-Login-master/src/styling/fullpackstyling.css" text="Admin" />
+   </children>
+</AnchorPane>

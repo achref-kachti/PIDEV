@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="628.0" prefWidth="968.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.AjoutMaterielController">
+    <stylesheets>
+        <URL value="@ajoutmateriel.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane layoutY="11.0" maxHeight="-1.0" maxWidth="-1.0" prefHeight="456.0" prefWidth="1120.0">
+         <children>
+            <Pane layoutX="-1.0" layoutY="-9.0" prefHeight="628.0" prefWidth="354.0" style="-fx-background-color: #0C39FF;">
+               <children>
+                  <Label alignment="CENTER" layoutX="140.0" layoutY="54.0" prefHeight="23.0" prefWidth="173.0" text="Gestion Matériel" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtrefmat" layoutX="152.0" layoutY="115.0" />
+                  <Label layoutX="14.0" layoutY="118.0" prefHeight="18.0" prefWidth="142.0" text="Reference Materiel" />
+                  <Label layoutX="14.0" layoutY="157.0" prefHeight="18.0" prefWidth="97.0" text="Nom Materiel" />
+                  <TextField fx:id="txtnommat" layoutX="152.0" layoutY="154.0" />
+                  <ComboBox fx:id="txtcatmat" layoutX="151.0" layoutY="202.0" prefWidth="150.0" />
+                  <Label layoutX="21.0" layoutY="206.0" prefHeight="18.0" prefWidth="110.0" text="Categorie" />
+                  <TextField fx:id="txtdescrmat" layoutX="151.0" layoutY="248.0" />
+                  <Label layoutX="20.0" layoutY="252.0" prefHeight="18.0" prefWidth="152.0" text="Description" />
+                  <ComboBox fx:id="txttypemat" layoutX="150.0" layoutY="292.0" prefWidth="150.0" />
+                  <Label layoutX="33.0" layoutY="296.0" text="Type" />
+                  <TextField fx:id="txtprixmat" layoutX="152.0" layoutY="334.0" />
+                  <Label layoutX="46.0" layoutY="338.0" text="Prix" />
+                  <TextField fx:id="txtqtmat" layoutX="151.0" layoutY="378.0" />
+                  <Label layoutX="11.0" layoutY="382.0" text="Quantité disponible">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtimgmat" layoutX="151.0" layoutY="421.0" />
+                  <Label layoutX="14.0" layoutY="420.0" prefHeight="18.0" prefWidth="64.0" text="Image">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="bajoutermat" layoutX="17.0" layoutY="521.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="278.0" styleClass="button2" stylesheets="@../../../../../../../../Desktop/Projets/keeptoo/JavaFX-MySQL-Login-master/src/styling/fullpackstyling.css" text="Ajouter" />
+               </children>
+            </Pane>
+            <Label fx:id="lblStatus" layoutX="405.0" layoutY="14.0" text="status" />
+            <Button fx:id="bsupprmat" layoutX="405.0" layoutY="419.0" mnemonicParsing="false" onAction="#supprimermateriel" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="152.0" styleClass="button2" stylesheets="@../../../../../../../../Desktop/Projets/keeptoo/JavaFX-MySQL-Login-master/src/styling/fullpackstyling.css" text="Supprimer" />
+            <TextField fx:id="txtrech" layoutX="564.0" layoutY="9.0" prefHeight="26.0" prefWidth="244.0" />
+            <Button fx:id="brechmat" layoutX="820.0" layoutY="6.0" mnemonicParsing="false" onAction="#recherchermateriel" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="131.0" styleClass="button2" stylesheets="@../../../../../../../../Desktop/Projets/keeptoo/JavaFX-MySQL-Login-master/src/styling/fullpackstyling.css" text="Rechercher" />
+            <Button fx:id="bmodif" layoutX="405.0" layoutY="480.0" mnemonicParsing="false" onAction="#modifiermateriel" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="152.0" styleClass="button2" stylesheets="@../../../../../../../../Desktop/Projets/keeptoo/JavaFX-MySQL-Login-master/src/styling/fullpackstyling.css" text="Modifier" />
+            <TableView fx:id="tblData" layoutX="353.0" layoutY="100.0" prefHeight="317.0" prefWidth="818.0">
+               <columns>
+                  <TableColumn fx:id="id_reservation_recherche" minWidth="0.0" prefWidth="0.0" text="id_reservation" />
+                  <TableColumn fx:id="refcol" minWidth="0.0" prefWidth="4.799983978271484" />
+                  <TableColumn fx:id="refcol" prefWidth="139.20001220703125" text="Ref" />
+                  <TableColumn fx:id="nomcol" prefWidth="66.4000244140625" text="Nom" />
+                  <TableColumn fx:id="catcol" prefWidth="84.800048828125" text="Categorie" />
+                  <TableColumn fx:id="descrcol" prefWidth="99.199951171875" text="Description" />
+                  <TableColumn fx:id="id_evenement_recherche1" minWidth="0.0" prefWidth="0.0" text="id_evenement" />
+                  <TableColumn fx:id="typecol" prefWidth="52.79998779296875" text="Type" />
+                  <TableColumn fx:id="prixcol" prefWidth="90.39996337890625" text="Prix" />
+                  <TableColumn fx:id="qtcol" minWidth="8.0" prefWidth="118.40008544921875" text="Quantite" />
+                  <TableColumn fx:id="imgcol" prefWidth="159.19998779296873" text="Image" />
+               </columns>
+            </TableView>
+            <Button fx:id="btri" layoutX="405.0" layoutY="537.0" mnemonicParsing="false" onAction="#triermateriel" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="152.0" styleClass="button2" stylesheets="@../../../../../../../../Desktop/Projets/keeptoo/JavaFX-MySQL-Login-master/src/styling/fullpackstyling.css" text="Trier Par Prix Asc" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
