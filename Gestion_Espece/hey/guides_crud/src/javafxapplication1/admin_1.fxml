@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="709.0" prefWidth="835.0" style="-fx-border-color: green; -fx-border-color: red;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.Admin_1Controller">
+   <children>
+      <ImageView fitHeight="703.0" fitWidth="837.0" layoutX="-2.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="709.0" fitWidth="837.0">
+         <image>
+            <Image url="@photo-1525779350160-30931cbc2aac.jfif" />
+         </image>
+      </ImageView>
+      <TabPane layoutX="32.0" layoutY="109.0" prefHeight="554.0" prefWidth="694.0" style="-fx-border-color: green;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Ajouter">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: green;">
+                     <children>
+                        <Text fill="WHITE" layoutX="50.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :" wrappingWidth="39.20428466796875" />
+                        <Text fill="WHITE" layoutX="53.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="saison" />
+                        <Text fill="WHITE" layoutX="40.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description" />
+                        <Text fill="WHITE" layoutX="226.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="type" />
+                        <TextField fx:id="tf_nom" accessibleRole="NODE" layoutX="134.0" layoutY="61.0" />
+                        <TextField fx:id="tf_saison" layoutX="134.0" layoutY="137.0" />
+                        <TextField fx:id="tf_description" layoutX="134.0" layoutY="202.0" />
+                        <Button fx:id="btn_ajouter_espece_admin" layoutX="307.0" layoutY="422.0" mnemonicParsing="false" onAction="#AjouterGuide" prefHeight="38.0" prefWidth="78.0" text="Ajouter" />
+                        <RadioButton fx:id="RB_chasse" layoutX="357.0" layoutY="313.0" mnemonicParsing="false" text="chasse" textFill="WHITE" />
+                        <RadioButton fx:id="RB_peche" layoutX="495.0" layoutY="313.0" mnemonicParsing="false" text="Peche" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Modifier">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="36.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du espece à modifier" />
+                        <Text fill="WHITE" layoutX="36.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="saison" />
+                        <Text fill="WHITE" layoutX="36.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description" />
+                        <Text fill="WHITE" layoutX="66.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spécialité :" />
+                        <TextField fx:id="tf_nom_modif" layoutX="219.0" layoutY="68.0" />
+                        <TextField fx:id="tf_prenom_modif" layoutX="219.0" layoutY="132.0" />
+                        <TextField fx:id="tf_telephone_modif" layoutX="219.0" layoutY="188.0" />
+                        <RadioButton fx:id="RB_specialite_chasse" layoutX="183.0" layoutY="277.0" mnemonicParsing="false" text="Chasse" textFill="WHITE" />
+                        <RadioButton fx:id="RB_specialite_peche" layoutX="335.0" layoutY="277.0" mnemonicParsing="false" text="Peche" textFill="WHITE" />
+                        <Button fx:id="btn_modifier" layoutX="271.0" layoutY="399.0" mnemonicParsing="false" onAction="#ModifierGuides" prefHeight="37.0" prefWidth="75.0" text="Modifier" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Supprimer">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="38.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Donnez le nom du espéce à supprimer " wrappingWidth="235.73667907714844" />
+                        <TextField fx:id="tf_nom_supprimer" layoutX="301.0" layoutY="142.0" />
+                        <Button fx:id="btn_supprimer_guide" layoutX="533.0" layoutY="450.0" mnemonicParsing="false" onAction="#SupprimerGuides" prefHeight="38.0" prefWidth="135.0" text="Suppimer" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="afficher">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="602.0">
+                     <children>
+                        <Button fx:id="btn_trier_guide" layoutX="535.0" layoutY="441.0" mnemonicParsing="false" onAction="#trierGuides" prefHeight="37.0" prefWidth="135.0" text="Tri par nom" />
+                        <TableView fx:id="tab_afficher_guides" layoutX="9.0" layoutY="20.0" prefHeight="398.0" prefWidth="676.0">
+                          <columns>
+                            <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="col_nom" prefWidth="75.0" text="Nom" />
+                              <TableColumn fx:id="col_type" prefWidth="114.39996337890625" text="type" />
+                              <TableColumn fx:id="col_saison" prefWidth="70.4000244140625" text="saison" />
+                              <TableColumn fx:id="col_description" prefWidth="112.00006103515625" text="description" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btn_chercher_guide" layoutX="204.0" layoutY="441.0" mnemonicParsing="false" onAction="#chercherGuides" prefHeight="37.0" prefWidth="135.0" text="Recherche par nom" />
+                        <TextField fx:id="tf_nom_chcercher" layoutX="22.0" layoutY="447.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+       
+        </tabs>
+      </TabPane>
+      <Text fontSmoothingType="LCD" layoutX="225.0" layoutY="68.0" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeWidth="0.0" text="Gestion des Especes" textAlignment="CENTER">
+         <font>
+            <Font size="43.0" />
+         </font>
+         <fill>
+            <RadialGradient centerX="0.5666666666666667" centerY="1.0" cycleMethod="REPEAT" radius="0.5">
+               <stops>
+                  <Stop color="#9aa77e" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Text>
+   </children>
+   <opaqueInsets>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </opaqueInsets>
+</AnchorPane>

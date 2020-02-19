@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packgui.UserController">
+   <children>
+      <ImageView fx:id="img_co" fitHeight="400.0" fitWidth="600.0" layoutY="-1.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Ressources/0.jpg" />
+         </image>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></ImageView>
+      <TableView layoutX="8.0" layoutY="101.0" prefHeight="266.0" prefWidth="300.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Nom" />
+          <TableColumn prefWidth="75.0" text="Type" />
+            <TableColumn prefWidth="75.0" text="Saison" />
+            <TableColumn prefWidth="75.0" text="Description" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_weather" layoutX="533.0" layoutY="337.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+      <ImageView fitHeight="60.0" fitWidth="91.0" layoutX="533.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Ressources/weather.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
