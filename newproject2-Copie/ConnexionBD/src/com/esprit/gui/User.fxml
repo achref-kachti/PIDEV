@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.UserController">
+   <children>
+      <Button fx:id="btn_LogementUser" layoutX="133.0" layoutY="144.0" mnemonicParsing="false" onAction="#LogementUser" prefHeight="56.0" prefWidth="127.0" text="Logement User" />
+      <Button fx:id="btn_ResLogementUser" layoutX="418.0" layoutY="144.0" mnemonicParsing="false" onAction="#ResLogementUser" prefHeight="56.0" prefWidth="138.0" text="ResLogement User" />
+      <Button fx:id="btn_RestaurantUser" layoutX="133.0" layoutY="287.0" mnemonicParsing="false" onAction="#RestaurantUser" prefHeight="56.0" prefWidth="127.0" text="Restaurant User" />
+      <Button fx:id="ResRestaurantUser" layoutX="418.0" layoutY="287.0" mnemonicParsing="false" onAction="#ResRestaurantUser" prefHeight="56.0" prefWidth="138.0" text="ResRestaurant User" />
+   </children>
+</AnchorPane>

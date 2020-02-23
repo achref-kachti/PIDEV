@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="586.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.AdminResLogementController">
+   <children>
+      <TabPane layoutX="8.0" layoutY="12.0" prefHeight="566.0" prefWidth="761.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Afficher Les Réservations">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tab_AfficherReservationLogAdmin1" layoutX="6.0" layoutY="13.0" prefHeight="381.0" prefWidth="748.0">
+                          <columns>
+                            <TableColumn fx:id="col_idReservationLog1" prefWidth="100.0" text="id Res" />
+                            <TableColumn fx:id="col_idLog1" prefWidth="112.0" text="id Logement" />
+                              <TableColumn fx:id="col_DateA1" prefWidth="171.0" text="Date Arrivee" />
+                              <TableColumn fx:id="col_DateD1" prefWidth="175.0" text="Date Départ" />
+                              <TableColumn fx:id="col_NbrChamb1" prefWidth="189.0" text="Nbr chamb réservé" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="tf_RechecherResLogementDateA" layoutX="21.0" layoutY="421.0" prefHeight="25.0" prefWidth="123.0" />
+                        <Button fx:id="btn_RechercherReservationLogDateA" layoutX="207.0" layoutY="421.0" mnemonicParsing="false" onAction="#RechercherReservationLogDateA" prefHeight="25.0" prefWidth="145.0" text="Rechercher Date Arrivée" />
+                        <Button fx:id="btn_TrierReservationLogDateA" layoutX="669.0" layoutY="421.0" mnemonicParsing="false" onAction="#TrierReservationLogDateA" prefHeight="25.0" prefWidth="84.0" text="Trier DateA" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Afficher Les Réservations ET Les Logements">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tab_AfficherReservationLogAdmin2" layoutX="6.0" layoutY="13.0" prefHeight="381.0" prefWidth="748.0">
+                           <columns>
+                              <TableColumn fx:id="col_idReservationLog2" prefWidth="75.0" text="id Res" />
+                              <TableColumn fx:id="col_idLog2" prefWidth="75.0" text="id Log" />
+                              <TableColumn fx:id="col_DateA2" prefWidth="99.0" text="Date Arrivé" />
+                              <TableColumn fx:id="col_DateD2" prefWidth="120.0" text="Date Départ" />
+                              <TableColumn fx:id="col_NbrChamb2" prefWidth="106.0" text="Nbr Chamb Res" />
+                              <TableColumn fx:id="col_Nom2" prefWidth="96.0" text="Nom " />
+                              <TableColumn fx:id="col_Lieu2" prefWidth="88.0" text="Lieu" />
+                              <TableColumn fx:id="col_Prix2" prefWidth="88.0" text="Prix Nuite" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="btn_PdfReservationLog" layoutX="660.0" layoutY="443.0" mnemonicParsing="false" onAction="#PdfReservationLog" prefHeight="25.0" prefWidth="87.0" text="Pdf" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
