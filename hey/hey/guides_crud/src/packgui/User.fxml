@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packgui.UserController">
+   <children>
+      <JFXTabPane prefHeight="508.0" prefWidth="661.0">
+         <tabs>
+            <Tab text="Gérer Espéce">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="650.0" />
+              </content>
+            </Tab>
+            <Tab text="Statistique">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Weather">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <AnchorPane prefHeight="508.0" prefWidth="661.0">
+         <children>
+            <ImageView fitHeight="441.0" fitWidth="661.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Ressources/Brg-blog-chasse-histoire-famille.jpg" />
+               </image>
+            </ImageView>
+            <Text fill="#691010" layoutX="218.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discover Your Trip" wrappingWidth="277.13671875">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <TableView fx:id="tab_user" layoutX="-4.0" layoutY="66.0" prefHeight="441.0" prefWidth="417.0">
+              <columns>
+                <TableColumn fx:id="col_nomuser" prefWidth="75.0" text="Nom" />
+                <TableColumn fx:id="col_lieuuser" prefWidth="75.0" text="Lieu" />
+                  <TableColumn fx:id="col_modeuser" prefWidth="75.0" text="Mode" />
+                  <TableColumn fx:id="col_saisonuser" prefWidth="75.0" text="Saison" />
+                  <TableColumn fx:id="col_descriptionuser" prefWidth="116.0" text="Description" />
+              </columns>
+            </TableView>
+            <JFXButton fx:id="pdf" layoutX="413.0" layoutY="116.0" onAction="#pdf_generate" prefHeight="51.0" prefWidth="181.0" text="Extraire Liste">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
