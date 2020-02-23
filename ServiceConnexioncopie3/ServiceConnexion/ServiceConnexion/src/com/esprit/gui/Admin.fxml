@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="623.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.AdminController">
+   <children>
+      <ImageView fitHeight="652.0" fitWidth="941.0" opacity="0.22" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/mat.jpg" />
+         </image>
+      </ImageView>
+      <JFXTabPane fx:id="tabpane" layoutX="23.0" layoutY="28.0" prefHeight="530.0" prefWidth="745.0">
+         <tabs>
+            <Tab fx:id="tabmateriel" text="Materiel ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="853.0">
+                     <children>
+                        <TableView fx:id="tblData" layoutX="4.0" layoutY="69.0" onMouseClicked="#modifiermaterielonclick" prefHeight="317.0" prefWidth="737.0">
+                           <columns>
+                              <TableColumn fx:id="id_reservation_recherche" minWidth="0.0" prefWidth="0.0" text="id_reservation" />
+                              <TableColumn fx:id="refcol" minWidth="0.0" prefWidth="0.0" />
+                              <TableColumn fx:id="nomcol" prefWidth="105.0" text="Nom" />
+                              <TableColumn fx:id="catcol" prefWidth="140.0" text="Categorie" />
+                              <TableColumn fx:id="descrcol" prefWidth="182.0" text="Description" />
+                              <TableColumn fx:id="typecol" prefWidth="106.0" text="Type" />
+                              <TableColumn fx:id="prixcol" prefWidth="76.0" text="Prix" />
+                              <TableColumn fx:id="qtcol" minWidth="8.0" prefWidth="137.0" text="Quantite" />
+                           </columns>
+                        </TableView>
+                        <JFXButton fx:id="bsupprmat" layoutX="600.0" layoutY="406.0" onAction="#supprimermateriel" prefHeight="25.0" prefWidth="131.0" text="supprimer" textFill="#30a78b">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btri" layoutX="14.0" layoutY="413.0" onAction="#triermateriel" prefHeight="44.0" prefWidth="283.0" text="Trier par prix ascendant" textFill="#30a78b">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <TextField fx:id="txtrech" layoutX="188.0" layoutY="14.0" prefHeight="31.0" prefWidth="337.0" />
+                        <JFXButton fx:id="brechmat" layoutX="566.0" layoutY="8.0" onAction="#cherchermateriel" prefHeight="25.0" prefWidth="131.0" text="chercher" textFill="#30a78b">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabform" text="Formulaire">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="bajoutermat" layoutX="584.0" layoutY="114.0" onAction="#ajoutermateriel" prefHeight="25.0" prefWidth="120.0" text="ajouter" textFill="#30a78b">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="bmodif" layoutX="579.0" layoutY="190.0" onAction="#modifiermateriel" prefHeight="25.0" prefWidth="120.0" text="modifier" textFill="#30a78b">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXTextField fx:id="txtrefmat" focusColor="#30a78b" layoutX="36.0" layoutY="39.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Reference" />
+                        <JFXTextField fx:id="txtnommat" focusColor="#30a78b" layoutX="36.0" layoutY="99.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Nom Materiel" />
+                        <JFXTextField fx:id="txtdescrmat" focusColor="#30a78b" layoutX="36.0" layoutY="219.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Description" />
+                        <JFXTextField fx:id="txtimgmat" focusColor="#30a78b" layoutX="36.0" layoutY="455.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Image" />
+                        <JFXTextField fx:id="txtqtmat" focusColor="#30a78b" layoutX="36.0" layoutY="402.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Quantité dispo" />
+                        <JFXTextField fx:id="txtprixmat" focusColor="#30a78b" layoutX="36.0" layoutY="351.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Prix" />
+                        <Label fx:id="lblStatus" layoutX="627.0" layoutY="14.0" text="Label" />
+                        <JFXComboBox fx:id="txtcatmat" layoutX="30.0" layoutY="175.0" prefHeight="25.0" prefWidth="186.0" />
+                        <JFXComboBox fx:id="txttypemat" layoutX="30.0" layoutY="289.0" prefHeight="25.0" prefWidth="186.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <ImageView fx:id="back" fitHeight="62.0" fitWidth="56.0" layoutX="23.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../resources/back.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

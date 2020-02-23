@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="628.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.FXMLuserController">
+   <children>
+      <ImageView fitHeight="672.0" fitWidth="943.0" layoutX="-54.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Img/photo-1525779350160-30931cbc2aac.jpg" />
+         </image>
+      </ImageView>
+      <JFXPasswordField fx:id="password_user" layoutX="329.0" layoutY="339.0" prefHeight="25.0" prefWidth="232.0" promptText="password" unFocusColor="BLACK" />
+      <JFXTextField fx:id="email_user" layoutX="329.0" layoutY="289.0" prefHeight="25.0" prefWidth="232.0" promptText="email" unFocusColor="BLACK" />
+      <JFXButton fx:id="acceder_user" layoutX="364.0" layoutY="414.0" onAction="#acceder_clicked" prefHeight="25.0" prefWidth="162.0" styleClass="button4" stylesheets="@fullpackstyling.css" text="acceder" textFill="#505755">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="364.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Img/login.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>
