@@ -15,6 +15,7 @@ public class vehicules {
    
     private int capacite;
    private int id_chauffeur;
+   private String type;
 
     public vehicules(int matricule, String date_depart, int capacite, int id_chauffeur) {
         this.matricule = matricule;

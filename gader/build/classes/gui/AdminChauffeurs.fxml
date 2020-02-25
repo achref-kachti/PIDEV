@@ -40,15 +40,16 @@
                               <TableColumn fx:id="col_telephone1" prefWidth="196.0" text="telephone" />
                           </columns>
                         </TableView>
-                        <Button fx:id="btn_ajoutChauffeur" layoutX="14.0" layoutY="313.0" mnemonicParsing="false" onAction="#ajoutChauffeur" prefHeight="108.0" prefWidth="193.0" text="Ajouter chauffeur" textAlignment="JUSTIFY" textOverrun="WORD_ELLIPSIS" />
+                        <Button fx:id="btn_ajoutChauffeur" layoutX="14.0" layoutY="313.0" mnemonicParsing="false" onAction="#ajoutChauffeur" prefHeight="61.0" prefWidth="135.0" text="Ajouter chauffeur" textAlignment="JUSTIFY" textOverrun="WORD_ELLIPSIS" />
                         <TextField fx:id="tf_cinAjouter" layoutX="188.0" layoutY="37.0" />
                         <TextField fx:id="tf_nomAjouter" layoutX="188.0" layoutY="101.0" />
                         <TextField fx:id="tf_prenomAjouter" layoutX="188.0" layoutY="175.0" />
                         <TextField fx:id="tf_telAjouter" layoutX="188.0" layoutY="252.0" />
-                        <Button fx:id="btn_TriChauffeursNom" layoutX="297.0" layoutY="313.0" mnemonicParsing="false" onAction="#triChauffeursNom" prefHeight="103.0" prefWidth="240.0" text="Trier par nom" />
-                        <Label layoutX="23.0" layoutY="511.0" prefHeight="43.0" prefWidth="167.0" text="critére de recherche :" />
-                        <TextField fx:id="tf_rechercheChauffeur" layoutX="152.0" layoutY="517.0" prefHeight="46.0" prefWidth="218.0" />
-                        <Button fx:id="btn_rechercheChauffeur" layoutX="417.0" layoutY="505.0" mnemonicParsing="false" onAction="#rechercheChauffeur" prefHeight="73.0" prefWidth="118.0" text="Recherche" />
+                        <Button fx:id="btn_TriChauffeursNom" layoutX="355.0" layoutY="305.0" mnemonicParsing="false" onAction="#triChauffeursNom" prefHeight="63.0" prefWidth="182.0" text="Trier par nom" />
+                        <Label layoutX="23.0" layoutY="431.0" prefHeight="43.0" prefWidth="167.0" text="critére de recherche :" />
+                        <TextField fx:id="tf_rechercheChauffeur" layoutX="155.0" layoutY="430.0" prefHeight="46.0" prefWidth="218.0" />
+                        <Button fx:id="btn_rechercheChauffeur" layoutX="391.0" layoutY="431.0" mnemonicParsing="false" onAction="#rechercheChauffeur" prefHeight="53.0" prefWidth="146.0" text="Recherche" />
+                        <Button fx:id="btn_pdfChauff" layoutX="18.0" layoutY="502.0" mnemonicParsing="false" onAction="#pdfChauff" prefHeight="76.0" prefWidth="131.0" text="creer pdf" />
                      </children>
                   </AnchorPane>
             </content>

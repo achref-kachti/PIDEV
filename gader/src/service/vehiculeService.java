@@ -75,6 +75,16 @@ public class vehiculeService implements ivehiculeService {
                          ps.setInt(4,matricule);
           int executeUpdate = ps.executeUpdate();
             }
+    public void modifiervehicules1(int matricule ,String datedp,String capa) throws SQLException   {  
+        
+          PreparedStatement ps=myConnex.prepareStatement(" UPDATE  vehicules SET date_depart=?, capacite=?  WHERE matricule='"+matricule+"';");
+                      ps.setString(1, datedp);
+                     
+                         ps.setString(2, capa);
+                         
+                         
+           ps.executeUpdate();
+            }
        /*
   try  {
                     PreparedStatement ps= myConnex.prepareStatement

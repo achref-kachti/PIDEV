@@ -1,7 +1,13 @@
 package service;
 
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import entites.chauffeurs;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -345,6 +351,35 @@ public class chauffeurService implements ichauffeurService {
 
    
   
+    
+    
+    public Paragraph pdf()throws SQLException, FileNotFoundException, DocumentException{
+    String filename="C:\\Users\\Lenovo\\Documents\\NetBeansProjects\\gader\\src\\pdf\\gader.pdf";
+    Document document=new Document();
+     PdfWriter.getInstance(document, new FileOutputStream(filename)); 
+     document.open();
+    PreparedStatement ps=null;
+     ResultSet rs=null;
+     
+     Paragraph pp=new Paragraph("Cin chauffeur         ||        Nom chauffeur         ||    Prenom chauffeur       ||     Numero telephone      \r\n \r\n");
+     document.add(pp);
+     Paragraph ppp=new Paragraph("________________________________________________________________");
+     document.add(ppp);
+     Paragraph para=new Paragraph();
+     String query=("select * from chauffeurs ");
+     ps=myConnex.prepareStatement(query);
+     rs=ps.executeQuery();
+     while(rs.next()){
+         para=new Paragraph(rs.getInt("cinc")+"      ||         "+rs.getString("nomc")+"      ||         "+rs.getString("prenomc")+"      ||         "+rs.getInt("num_telc"));
+        document.add(para);
+       document.add(new Paragraph("  "));
+                      }
+     
+     document.close();
+     System.out.println("finished ma vie");
+ return para;       
+}
+    
 
   /*  @Override
     public void modifierchauffeurs(chauffeurs p) uthj

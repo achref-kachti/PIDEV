@@ -5,6 +5,7 @@
  */
 package gui;
 
+import com.itextpdf.text.DocumentException;
 import service.chauffeurService;
 import entites.chauffeurs;
 import java.net.URL;
@@ -40,6 +41,7 @@ import javax.swing.JOptionPane;
 
 
 import entites.ChauffeurVehicule;
+import java.io.FileNotFoundException;
 /**
  * FXML Controller class
  *
@@ -113,6 +115,8 @@ public class AdminChauffeursController implements Initializable {
     private TextField tf_rechercheChauffeur;
     @FXML
     private Button btn_rechercheChauffeur;
+    @FXML
+    private Button btn_pdfChauff;
     
 
     
@@ -129,8 +133,8 @@ public class AdminChauffeursController implements Initializable {
         afficher();
        afficher2();
 afficher3();
-        
-                
+      
+                tf_cinModif.setDisable(true);
            
               
     }    
@@ -475,6 +479,12 @@ tf_cinModif.setText(String.valueOf(p1.getCinc()));
      } catch (SQLException ex) {
             Logger.getLogger(AdminChauffeursController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+
+    @FXML
+    private void pdfChauff(ActionEvent event) throws SQLException, DocumentException, FileNotFoundException {
+chauffeurService s1=new chauffeurService();
+        s1.pdf();
     }
     }
         

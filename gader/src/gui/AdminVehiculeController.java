@@ -26,6 +26,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Tab;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
@@ -96,8 +97,6 @@ public class AdminVehiculeController implements Initializable {
     @FXML
     private TableView<vehicules> tab_AfficherVehiculesAd2;
     @FXML
-    private Button btn_selectVehiculeMod;
-    @FXML
     private Button btn_Jointure2;
     @FXML
     private TableColumn<vehicules,String> col_matricule2;
@@ -107,7 +106,22 @@ public class AdminVehiculeController implements Initializable {
     private TableColumn<vehicules,String> col_capacite2;
     @FXML
     private TableColumn<vehicules,String> col_id_chauffeur2;
-
+    @FXML
+    private Button btn_modVehicule;
+    @FXML
+    private TableView<vehicules> tbl_afficherVehiculeSup;
+    @FXML
+    private TableColumn<vehicules,String> col_matricule3;
+    @FXML
+    private TableColumn<vehicules,String> col_date_depart3;
+    @FXML
+    private TableColumn<vehicules,String> col_capacite3;
+    @FXML
+    private TableColumn<vehicules,String> col_id_chauffeur3;
+    @FXML
+    private Button btn_supprimerChauffAdmin;
+    
+    
     
 
     /**
@@ -117,6 +131,10 @@ public class AdminVehiculeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.Jointure();
         afficher();
+        afficher2();
+        afficher3();
+                          tf_matriculeModifier.setDisable(true);
+tf_id_chauffeurModifier.setDisable(true);
         // TODO
     }    
     
@@ -143,6 +161,50 @@ public class AdminVehiculeController implements Initializable {
     }
     
     
+         public void afficher3()
+    {
+                       List<vehicules> list ; 
+        try {
+            list = sl.readAll(); // TODO
+            
+        
+        ObservableList<vehicules> obs = FXCollections.observableArrayList(list); 
+           
+          
+        
+        col_matricule3.setCellValueFactory(new PropertyValueFactory<>("matricule"));
+        col_date_depart3.setCellValueFactory(new PropertyValueFactory<>("date_depart"));
+        col_capacite3.setCellValueFactory(new PropertyValueFactory<>("capacite"));
+        col_id_chauffeur3.setCellValueFactory(new PropertyValueFactory<>("id_chauffeur"));
+      tbl_afficherVehiculeSup.setItems(obs);   
+     } catch (SQLException ex) {
+            Logger.getLogger(AdminVehiculeController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+        
+        
+        
+        
+                public void afficher2()
+    {
+                       List<vehicules> list ; 
+        try {
+            list = sl.readAll(); // TODO
+            
+        
+        ObservableList<vehicules> obs = FXCollections.observableArrayList(list); 
+           
+          
+        
+        col_matricule2.setCellValueFactory(new PropertyValueFactory<>("matricule"));
+        col_date_depart2.setCellValueFactory(new PropertyValueFactory<>("date_depart"));
+        col_capacite2.setCellValueFactory(new PropertyValueFactory<>("capacite"));
+        col_id_chauffeur2.setCellValueFactory(new PropertyValueFactory<>("id_chauffeur"));
+      tab_AfficherVehiculesAd2.setItems(obs);   
+     } catch (SQLException ex) {
+            Logger.getLogger(AdminVehiculeController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
     
     
     
@@ -324,9 +386,75 @@ tf_id_chauffeurAjouter.setText(String.valueOf(p1.getId_chauffeur()));
 
     @FXML
     private void selectionnerVehicule2(MouseEvent event) {
+         vehicules p1=tab_AfficherVehiculesAd2.getSelectionModel().getSelectedItem();
+tf_matriculeModifier.setText(String.valueOf(p1.getMatricule()));
+tf_date_departModifier.setText(String.valueOf(p1.getDate_depart()));
+tf_capaciteModifier.setText(String.valueOf(p1.getCapacite()));
+tf_id_chauffeurModifier.setText(String.valueOf(p1.getId_chauffeur()));
     }
 
     @FXML
-    private void selectVehiculeMod(ActionEvent event) {
+    private void modVehicule(ActionEvent event) throws SQLException {
+        
+             vehicules p1=tab_AfficherVehiculesAd2.getSelectionModel().getSelectedItem();
+         
+             
+             
+            
+             FXMLLoader loader = new FXMLLoader
+                      (getClass()
+                        .getResource("AdminVehicule.fxml")); 
+            String m = tf_matriculeModifier.getText();
+                        int matricule =Integer.parseInt(m);
+
+                        String date_depart= tf_date_departModifier.getText();
+
+            String idc = tf_id_chauffeurModifier.getText();
+            int id_chauffeur = Integer.parseInt(idc);
+            
+            String cap = tf_capaciteModifier.getText(); 
+                       
+                      
+
+            
+       
+
+            
+             
+          
+             
+            
+        sl.modifiervehicules1(matricule,date_depart,cap);          
+                        tab_AfficherVehiculesAd2.getItems().clear();
+                                JOptionPane.showMessageDialog(null, "Vehicule modifié avec succes !");
+
+            afficher();
+                    this.Jointure();
+                    afficher3();
+afficher2();
+    }
+
+    @FXML
+    private void supprimerChauffAdmin(ActionEvent event) {
+          int id= tbl_afficherVehiculeSup.getSelectionModel().getSelectedIndex();
+             vehicules p1=tbl_afficherVehiculeSup.getSelectionModel().getSelectedItem();
+        if (!p1.equals(null)){ 
+        sl.supprimervehicules(p1);          
+                        tbl_afficherVehiculeSup.getItems().clear();
+                                JOptionPane.showMessageDialog(null, "Vehicule supprimé avec succes !");
+
+            afficher();
+            afficher2();
+            afficher3();
+                this.Jointure();
+
+        
+    }
+}
+
+    @FXML
+    private void selectionnerVehicule3(MouseEvent event) {
+        
+         
     }
 }
