@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminVehiculeController">
+   <children>
+      <TabPane layoutY="-5.0" prefHeight="712.0" prefWidth="987.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Ajouter vehicule">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="712.0" fitWidth="987.0" layoutY="-22.0" opacity="0.49" pickOnBounds="true">
+                           <image>
+                              <Image url="@../ressources/img2.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="33.0" layoutY="65.0" text="Matricule" />
+                        <TextField fx:id="tf_matriculeAjouter" layoutX="153.0" layoutY="48.0" />
+                        <Label layoutX="22.0" layoutY="149.0" text="Date de depart" />
+                        <Label layoutX="34.0" layoutY="240.0" text="Capacite" />
+                        <Label layoutX="14.0" layoutY="308.0" text="Identifiant du chauffeur" />
+                        <TextField fx:id="tf_date_departAjouter" layoutX="155.0" layoutY="132.0" />
+                        <TextField fx:id="tf_capaciteAjouter" layoutX="155.0" layoutY="227.0" />
+                        <TextField fx:id="tf_id_chauffeurAjouter" layoutX="169.0" layoutY="305.0" />
+                        <TableView fx:id="tab_AfficherVehiculesAd1" layoutX="457.0" layoutY="6.0" onMouseClicked="#selectionnerVehicule" prefHeight="469.0" prefWidth="530.0">
+                          <columns>
+                            <TableColumn fx:id="col_matricule1" prefWidth="141.0" text="Matricule" />
+                            <TableColumn fx:id="col_date_depart1" prefWidth="111.0" text="Date depart" />
+                              <TableColumn fx:id="col_capacite1" prefWidth="152.0" text="Capacite" />
+                              <TableColumn fx:id="col_id_chauffeur1" prefWidth="142.0" text="ID chauffeur" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btn_ajoutVehicule" layoutX="7.0" layoutY="380.0" mnemonicParsing="false" onAction="#ajoutVehicule" prefHeight="99.0" prefWidth="130.0" text="Ajouter vehicule" />
+                        <Button fx:id="btn_triVehicule" layoutX="177.0" layoutY="380.0" mnemonicParsing="false" onAction="#triVehicule" prefHeight="99.0" prefWidth="167.0" text="Trier par capacite" />
+                        <Label layoutX="34.0" layoutY="541.0" prefHeight="18.0" prefWidth="165.0" text="Critere de recherche:" />
+                        <TextField fx:id="tf_rechercheVehicule" layoutX="199.0" layoutY="538.0" prefHeight="26.0" prefWidth="194.0" />
+                        <Button fx:id="btn_rechercheVehicule" layoutX="405.0" layoutY="516.0" mnemonicParsing="false" onAction="#rechercheVehicule" prefHeight="71.0" prefWidth="176.0" text="Recherche" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Modifier vehicule">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="71.0" layoutY="60.0" prefHeight="43.0" prefWidth="120.0" text="matricule:" />
+                        <Label layoutX="71.0" layoutY="143.0" prefHeight="29.0" prefWidth="96.0" text="date de depart :" />
+                        <Label layoutX="71.0" layoutY="215.0" prefHeight="18.0" prefWidth="85.0" text="capacite:" />
+                        <Label layoutX="71.0" layoutY="272.0" prefHeight="18.0" prefWidth="158.0" text="Identifiant du chauffeur:" />
+                        <TextField fx:id="tf_matriculeModifier" layoutX="272.0" layoutY="69.0" />
+                        <TextField fx:id="tf_date_departModifier" layoutX="274.0" layoutY="145.0" />
+                        <TextField fx:id="tf_capaciteModifier" layoutX="276.0" layoutY="221.0" />
+                        <TextField fx:id="tf_id_chauffeurModifier" layoutX="274.0" layoutY="278.0" />
+                        <TableView fx:id="tab_AfficherVehiculesAd2" layoutX="474.0" layoutY="33.0" onMouseClicked="#selectionnerVehicule2" prefHeight="354.0" prefWidth="492.0">
+                          <columns>
+                            <TableColumn fx:id="col_matricule2" prefWidth="98.0" text="matricule" />
+                            <TableColumn fx:id="col_date_depart2" prefWidth="99.0" text="date depart" />
+                              <TableColumn fx:id="col_capacite2" prefWidth="139.0" text="capacite" />
+                              <TableColumn fx:id="col_id_chauffeur2" prefWidth="155.0" text="identifiant chauffeur" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btn_selectVehiculeMod" layoutX="71.0" layoutY="462.0" mnemonicParsing="false" onAction="#selectVehiculeMod" prefHeight="87.0" prefWidth="237.0" text="Modifier vehicule" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Liste de chauffeurs">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tbl_ChauffeurVehicule" layoutX="29.0" layoutY="43.0" prefHeight="357.0" prefWidth="914.0">
+                          <columns>
+                            <TableColumn fx:id="col_cinx" prefWidth="158.0" text="cin" />
+                            <TableColumn fx:id="col_nomx" prefWidth="194.0" text="nom" />
+                              <TableColumn fx:id="col_matriculex" prefWidth="310.0" text="matricule" />
+                              <TableColumn fx:id="col_capacitex" prefWidth="251.0" text="capacite" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="tf_search" layoutX="360.0" layoutY="536.0" prefHeight="41.0" prefWidth="157.0" />
+                        <Label layoutX="265.0" layoutY="548.0" text="cin chauffeur" />
+                        <Button fx:id="btn_Jointure2" layoutX="556.0" layoutY="536.0" mnemonicParsing="false" onAction="#Jointure2" prefHeight="59.0" prefWidth="266.0" text="Afficher vehicules liés au chauffeur" />
+                        <Button layoutX="856.0" layoutY="605.0" mnemonicParsing="false" onAction="#Jointure" prefHeight="32.0" prefWidth="105.0" text="reinitialiser" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
