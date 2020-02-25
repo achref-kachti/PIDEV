@@ -12,6 +12,12 @@ import java.sql.SQLException;
 import java.util.List;
 import java.sql.*;
 import com.esprit.Utils.DataBase;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +35,7 @@ public class ServicePanier implements IServicepanier<Panier> {
     }
 
    /*existence du produit et de l'utilisateur*/
+    @Override
     public boolean panierexiste(int  reference, int id)
      {
                    ResultSet result=null;
@@ -56,14 +63,16 @@ public class ServicePanier implements IServicepanier<Panier> {
      }
     /*ajout au panier : s'il existe un meme user qui achete le meme produit on incremente la qt achetee*/
     
-      @Override
+    
+    /*********************************************************************************************************************/
+    @Override
     public void ajouterach(Panier t) throws SQLException {
         ste = con.createStatement();
-        String requeteInsert = "INSERT INTO panier ( refmat, iduser, qtach ) VALUES ('" + t.getRefmat() + "', '" + t.getIduser() + "', '" + t.getQtach() +  "');";
+        String requeteInsert = "INSERT INTO panier ( refmat, iduser, qtach ) VALUES ('" + t.getRefmat() + "', '" + t.getIduser() + "', '" + t.getQtach()+1 +  "');";
         if(panierexiste(t.getRefmat(),t.getIduser())==false){
         ste.executeUpdate(requeteInsert);}
         else{
-            String req="UPDATE panier SET qtach=qtach+'" + t.getQtach() + "' where iduser='" + t.getIduser() + "' and refmat='" + t.getRefmat() + "' ";
+            String req="UPDATE panier SET qtach=qtach+1 where iduser='" + t.getIduser() + "' and refmat='" + t.getRefmat() + "' ";
             ste.executeUpdate(req);
         }
     }
@@ -83,7 +92,7 @@ public class ServicePanier implements IServicepanier<Panier> {
                ResultSet result=ste.executeQuery("select *  from panier inner join materiel on panier.refmat=materiel.refmat inner join users on panier.iduser=users.id  where panier.idach='"+id+"'");
                while(result.next())
                {  
-                  r=new Panier(result.getInt(1),result.getInt("refmat"),result.getInt("iduser"),result.getInt("prixach")
+                  r=new Panier(result.getInt(1),result.getInt("refmat"),result.getInt("iduser"),result.getInt("qtach")
                                     );
                }
                
@@ -100,7 +109,7 @@ public class ServicePanier implements IServicepanier<Panier> {
              result=prepare.executeUpdate();
              ResultSet resultat=prepare.getGeneratedKeys();
                          while ( resultat.next() ) {
-                                  generated_id=resultat.getInt( 1 ) ;
+                                  generated_id=resultat.getInt(1) ;
                                   }
                 
             return generated_id;
@@ -126,14 +135,29 @@ public class ServicePanier implements IServicepanier<Panier> {
           }
          }
 
-   public int annuler_achat(String nom, String prenomu) throws SQLException
+    @Override
+   public void annuler_achat(int id) throws SQLException
      {
-             int result=-1;
-             result=ste.executeUpdate("delete panier from panier inner join materiel on panier.refmat=materiel.refmat inner join users on panier.iduser=users.id where materiel.nommat="+nom+" and users.prenom="+prenomu );
-             return result;
+           /*  int result=-1;
+             
+             result=ste.executeUpdate("delete  from  panier  where refmat="+ref+"and iduser="+id );
+             return result;*/
+         
+          try{
+        String req2 =
+        "delete from panier where idach=?";
+        PreparedStatement ps =
+        con.prepareStatement(req2);
+        ps.setInt(1,id);
+        ps.execute();
+        //del=ste.executeUpdate("delete from materievente where refmat="+t.getRef());
+       }catch (SQLException ex) {
+              Logger.getLogger(Panier.class.getName()).log(Level.SEVERE, null, ex);
+          }
      }
      
     
+  
     
     /* modification*/
     @Override
@@ -163,6 +187,7 @@ public class ServicePanier implements IServicepanier<Panier> {
       }
     
     /*recuperation de l'achat par titre*/
+    @Override
     public Panier recupererachattitre(String titre) throws SQLException
      {
                ResultSet result=null;
@@ -202,18 +227,27 @@ public class ServicePanier implements IServicepanier<Panier> {
     return arr;
     }
     /*???????????????*/
-     public List<AfficherMatrielPanier> afficherlisteachjoint() throws SQLException {
+    
+     public List<AfficherMatrielPanier> afficherlisteachjoint(int id) throws SQLException {
     List<AfficherMatrielPanier> arr=new ArrayList<>();
     ste=con.createStatement();
-    ResultSet rs=ste.executeQuery("select materiel.nommat, users.prenom,materiel.imagemat, panier.qtach  from panier inner join materiel on panier.refmat=materiel.refmat inner join users on panier.iduser=users.id ");
-     while (rs.next()) {                
-               String nommat=rs.getString(1);
-               String prenom=rs.getString(2);
-               String imagemat=rs.getString(3);
+    ResultSet rs=ste.executeQuery("select * from panier inner join materiel on panier.refmat=materiel.refmat inner join users on panier.iduser=users.id where users.id='"+id+"'");
+     while (rs.next()) { 
+               int idach=rs.getInt(1);
+               int refmat=rs.getInt(2);
+               int iduser=rs.getInt(3);
+               
+
+               String nommat=rs.getString(6);
+               int prixmat=rs.getInt(10);
+              
+               String imagemat=rs.getString(12);
+                String prenom=rs.getString(15);
                int qtach= rs.getInt(4);
              
 
-               AfficherMatrielPanier p=new AfficherMatrielPanier(nommat, prenom, imagemat, qtach);
+              // AfficherMatrielPanier p=new AfficherMatrielPanier(nommat, prenom, imagemat, qtach);
+              AfficherMatrielPanier p=new AfficherMatrielPanier(idach, refmat, iduser, nommat, prixmat, imagemat, prenom, qtach);
      arr.add(p);
      }
     return arr;
@@ -241,19 +275,28 @@ public class ServicePanier implements IServicepanier<Panier> {
         
     }
     
-  /*recherche*/  
-public List<Panier> rechercheach(String s) throws SQLException{
-         List<Panier> arr=new ArrayList<>();
+  /*recherche*/ 
+   
+       public List<AfficherMatrielPanier> rechercheach(String s,int id) throws SQLException{
+         List<AfficherMatrielPanier> arr=new ArrayList<>();
          ste=con.createStatement();
-        ResultSet rs=ste.executeQuery("Select * from panier inner join materiel on panier.refmat=materiel.refmat inner join users on panier.iduser=users.id  where idach like '%" + s + "%'  or iduser like '%" + s + "%'or qtach like '%" + s + "%' or nommat like '%" + s + "%'or prixmat like '%" + s + "%';");
+        ResultSet rs=ste.executeQuery("Select * from panier inner join materiel on panier.refmat=materiel.refmat inner join users on panier.iduser=users.id  where idach like '%" + s + "%' or qtach like '%" + s + "%' or nommat like '%" + s + "%'or prixmat like '%" + s + "%' and iduser ='"+id+"'");
            while (rs.next()) {                
-               int idach=rs.getInt("idach");
-               int refmat=rs.getInt("refmat");
-               int iduser=rs.getInt("iduser");
-               int qtach= rs.getInt("qtach");
-              
+               int idach=rs.getInt(1);
+               int refmat=rs.getInt(2);
+               int iduser=rs.getInt(3);
+               
 
-               Panier p=new Panier(idach, refmat, iduser, qtach);
+               String nommat=rs.getString(6);
+               int prixmat=rs.getInt(10);
+              
+               String imagemat=rs.getString(12);
+                String prenom=rs.getString(15);
+               int qtach= rs.getInt(4);
+             
+
+             
+              AfficherMatrielPanier p=new AfficherMatrielPanier(idach, refmat, iduser, nommat, prixmat, imagemat, prenom, qtach);
      arr.add(p);
      }
     return arr;
@@ -283,7 +326,51 @@ catch (SQLException e)
      
                       }     
  return d;      
-}       
-   
+}  
+
+
+public Paragraph pdf(int id)throws SQLException, FileNotFoundException, DocumentException{
+    String filename="C:\\Users\\sarah\\Documents\\NetBeansProjects\\ServiceConnexioncopie3\\ServiceConnexion\\ServiceConnexion\\pdf\\facture.pdf";
+    Document document=new Document();
+     PdfWriter.getInstance(document, new FileOutputStream(filename)); 
+     document.open();
+    PreparedStatement ps=null;
+     ResultSet rs=null;
+     Paragraph p=new Paragraph("Facture du client détenant l'id: "+id+"\r\n \r\n");
+     document.add(p);
+     Paragraph pp=new Paragraph("Materiel         ||        Client         ||    Quantité       ||     Prix      \r\n \r\n");
+     document.add(pp);
+     Paragraph ppp=new Paragraph("________________________________________________________________");
+     document.add(ppp);
+     
+     Paragraph para=new Paragraph();
+     String query=("select * from panier inner join materiel on panier.refmat=materiel.refmat inner join users on panier.iduser=users.id where users.id='"+id+"'");
+     ps=con.prepareStatement(query);
+     rs=ps.executeQuery();
+     while(rs.next()){
+         para=new Paragraph(rs.getString("nommat")+"      ||         "+rs.getString("prenom")+"      ||         "+rs.getInt("qtach")+"      ||         "+rs.getInt("prixmat"));
+        document.add(para);
+       document.add(new Paragraph("  "));
+       
+                      }
+     
+     
+     Paragraph o=new Paragraph();
+     
+     String q=("select sum(panier.qtach*materiel.prixmat) as tot from panier inner join materiel on panier.refmat=materiel.refmat where iduser='" + id + "'");
+     ps=con.prepareStatement(q);
+     rs=ps.executeQuery();
+     while (rs.next()) {                
+           o= new Paragraph("Total= "+(float) rs.getDouble(1)+" dt");
+           document.add(o);  
+     } 
+     
+     
+     
+     document.close();
+     System.out.println("finished ma vie");
+ return para;       
+}  
 }
+
 

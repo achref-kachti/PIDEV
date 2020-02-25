@@ -13,14 +13,16 @@ import java.util.List;
  * @param <T>
  */
 public interface IServicepanier<T>{ 
-    public boolean panierexiste(int  reference, int id) throws SQLException;
+     boolean panierexiste(int  reference, int id);
      void ajouterach(T t) throws SQLException;
     //void supprimerach(T t) throws SQLException;
     //int delete_mat(int refmat) throws SQLException;
+     void annuler_achat(int id) throws SQLException;
     void modifierach(T t,int id) throws SQLException;
     List<T> afficherlisteach() throws SQLException;
+   T recupererachattitre(String titre) throws SQLException;
   //  List<T> trierach() throws SQLException;
-    List<T> rechercheach(String s) throws SQLException;
+    //List<T> rechercheach(String s) throws SQLException;
     double calcultotal(int id) throws SQLException;
     
 }

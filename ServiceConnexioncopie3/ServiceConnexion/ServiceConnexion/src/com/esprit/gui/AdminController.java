@@ -7,6 +7,7 @@ package com.esprit.gui;
 
 import com.esprit.Entite.Materiel;
 import com.esprit.Service.ServiceMateriel;
+import com.jfoenix.controls.JFXComboBox;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -29,6 +30,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
@@ -62,8 +64,6 @@ public class AdminController implements Initializable {
     private TextField txtrech;
     @FXML
     private Button bajoutermat;
-    @FXML
-    private Button bupdatemat;
     @FXML
     TableView<Materiel> tblData;
     @FXML
@@ -99,6 +99,10 @@ public class AdminController implements Initializable {
     private Tab tabform;
     @FXML
     private TableColumn<?, ?> id_reservation_recherche;
+    @FXML
+    private JFXComboBox<String> txttype;
+    @FXML
+    private ImageView back;
    
     /**
      * Initializes the controller class.
@@ -109,8 +113,11 @@ public class AdminController implements Initializable {
         txtcatmat.setItems(txtcatmatlist);
         txttypemat.setValue("vente");
         txttypemat.setItems(txttypematlist);
+        
+        txttype.setValue("vente");
+        txttype.setItems(txttypematlist);
      
-            this.buildData();
+           this.buildData();
     }  
     
     private void HandleEvents(MouseEvent event) {
@@ -167,7 +174,13 @@ public class AdminController implements Initializable {
     @FXML
     private void triermateriel(ActionEvent event)throws IOException,SQLException {
         ServiceMateriel sm= new ServiceMateriel(); 
-        List<Materiel> listetri=sm.triermat();
+        String type = (String) txttype.getValue();
+        List<Materiel> listetri=null;
+          if(type=="vente")
+          {listetri=sm.triermat("vente");}
+          if(type=="location") 
+          {listetri=sm.triermat("location");}
+        
         ObservableList<Materiel> obsr =FXCollections.observableArrayList(listetri);
         
            // refcol.setCellValueFactory(new PropertyValueFactory<Materiel,Integer>("ref"));
@@ -185,7 +198,9 @@ public class AdminController implements Initializable {
     private void cherchermateriel(ActionEvent event) throws IOException,SQLException {
         ServiceMateriel sm= new ServiceMateriel();
         String rech = txtrech.getText();  
-        List<Materiel> listerech=sm.recherchemat(rech);
+        String type = (String) txttype.getValue();
+        List<Materiel> listerech=null;
+        listerech=sm.recherchemat(rech,type);
            
         ObservableList<Materiel> obsr =FXCollections.observableArrayList(listerech);
             
@@ -235,15 +250,20 @@ public class AdminController implements Initializable {
     
      public void buildData(){
         ServiceMateriel s= new ServiceMateriel();
-            List <Materiel> list;
-      try{ list= s.afficherlistemat();
+            List <Materiel> list = null;
+            
+      try{ String type = (String) txttype.getValue();
+          if(type=="vente")
+          {list= s.afficherlistematvente();}
+          if(type=="location") 
+          {list=s.afficherlistematloc();}
             
             ObservableList<Materiel> obsr =FXCollections.observableArrayList(list);
             
            // refcol.setCellValueFactory(new PropertyValueFactory<Materiel,Integer>("ref"));
             nomcol.setCellValueFactory(new PropertyValueFactory<Materiel,String>("nom"));
             catcol.setCellValueFactory(new PropertyValueFactory<Materiel,String>("categorie"));
-            descrcol.setCellValueFactory(new PropertyValueFactory<Materiel,String>("descmat"));
+            descrcol.setCellValueFactory(new PropertyValueFactory<Materiel,String>("desciption"));
             typecol.setCellValueFactory(new PropertyValueFactory<Materiel,String>("type"));
             prixcol.setCellValueFactory(new PropertyValueFactory<Materiel,Integer>("prix"));
             qtcol.setCellValueFactory(new PropertyValueFactory<Materiel,Integer>("quantite"));
@@ -312,6 +332,11 @@ public class AdminController implements Initializable {
          txtprixmat.setText(String.valueOf(m.getPrix()));
          txtqtmat.setText(String.valueOf(m.getQuantite()));
          txtimgmat.setText(m.getImage());
+    }
+
+    @FXML
+    private void typeaction(ActionEvent event) {
+        this.buildData();
     }
 }
 

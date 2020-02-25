@@ -12,6 +12,11 @@ import com.esprit.Entite.users;
 import com.esprit.Service.ServicePanier;
 import com.esprit.Service.ServiceMateriel;
 import com.esprit.Service.userService;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import java.net.URL;
@@ -29,6 +34,7 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -120,6 +126,14 @@ public class UserController implements Initializable {
     private JFXButton bpdf;
     @FXML
     private ImageView back;
+    @FXML
+    private TableColumn<AfficherMatrielPanier,Integer> prixcol;
+    @FXML
+    private JFXButton brecherche;
+    @FXML
+    private TextField txtrech;
+    @FXML
+    private JFXTextField typematt;
 
     /**
      * Initializes the controller class.
@@ -148,16 +162,17 @@ public class UserController implements Initializable {
     private void ajouteraupanier(ActionEvent event) {
          if(! listecatalogue.getSelectionModel().isEmpty())  
       {
-         // pane_reserver.setVisible(true);
+        
           String titre=listecatalogue.getSelectionModel().getSelectedItem();
       
         try {
             Materiel e=sm.recuperermattitre(titre);
-            Panier p= new Panier(1,e.getRef(),u.getId());
             
-           sp.ajouter_panier(p);
+            Panier p= new Panier(e.getRef(),u.getId());
+            
+           sp.ajouterach(p);
            
-             
+           this.buildData();
             
             
              
@@ -194,6 +209,7 @@ public class UserController implements Initializable {
              descmat.setText(e.getDesc());
              prixmat.setText(String.valueOf(e.getPrix()+"dt"));
              image_mat.setImage(new Image(new FileInputStream("resources/"+e.getImage()+".jpg")));
+              typematt.setText(e.getType());
             
              
         
@@ -208,21 +224,22 @@ public class UserController implements Initializable {
            refmatcol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,String>("nommat"));
             idusercol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,String>("prenom"));
             qtacheteecol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,Integer>("qtach"));
-         
+            prixcol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,Integer>("prixmat"));
             tblpanier.setItems(obsr);
     }
     
      public void buildData(){
         ServicePanier s= new ServicePanier();
             List <AfficherMatrielPanier> list;
-      try{ list= s.afficherlisteachjoint();
-            
+      try{ list= s.afficherlisteachjoint(u.getId());
+                  
             ObservableList<AfficherMatrielPanier> obsr =FXCollections.observableArrayList(list);
             
            
             refmatcol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,String>("nommat"));
             idusercol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,String>("prenom"));
             qtacheteecol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,Integer>("qtach"));
+            prixcol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,Integer>("prixmat"));
          
             tblpanier.setItems(obsr);
       }catch(SQLException ex ) {
@@ -238,14 +255,15 @@ public class UserController implements Initializable {
         if(! tblpanier.getSelectionModel().isEmpty())
         {
              AfficherMatrielPanier r = tblpanier.getSelectionModel().getSelectedItem();
-             try{
-                sp.annuler_achat(r.getNommat(),r.getPrenom());
-            this.buildData();
+           
+             
+             
+                 
+                 sp.annuler_achat(r.getIdach());
+          this.buildData();
             
 
-        } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
+       
         }     
         else
         {
@@ -287,8 +305,30 @@ public class UserController implements Initializable {
     }
 
     @FXML
-    private void genererpdf(ActionEvent event) {
-        /****/
+    private void genererpdf(ActionEvent event)throws IOException,SQLException, FileNotFoundException, DocumentException {
+        ServicePanier sp= new ServicePanier();
+        sp.pdf(u.getId());
+    }
+
+    @FXML
+    private void cherchepanier(ActionEvent event) throws IOException,SQLException {
+      ServicePanier sp= new ServicePanier();
+      if(txtrech.getText().trim().isEmpty()){
+          this.buildData();;
+      }
+      else{
+        String rech = txtrech.getText();  
+        List<AfficherMatrielPanier> listerech=sp.rechercheach(rech,u.getId());
+           
+        ObservableList<AfficherMatrielPanier> obsr =FXCollections.observableArrayList(listerech);
+           refmatcol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,String>("nommat"));
+            idusercol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,String>("prenom"));
+            qtacheteecol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,Integer>("qtach"));
+            prixcol.setCellValueFactory(new PropertyValueFactory<AfficherMatrielPanier,Integer>("prixmat"));
+            txtrech.clear();
+            tblpanier.getItems().clear();
+            tblpanier.setItems(obsr); 
+      }  
     }
 }
 

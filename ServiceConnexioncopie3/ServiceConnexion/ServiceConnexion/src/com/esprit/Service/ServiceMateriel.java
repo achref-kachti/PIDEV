@@ -46,7 +46,7 @@ public class ServiceMateriel implements IServiceMateriel<Materiel> {
     pre.executeUpdate();
     }*/
        
-    
+      
        public Materiel recuperermattitre(String titre) throws SQLException
      {
                ResultSet rs=null;
@@ -141,11 +141,11 @@ public class ServiceMateriel implements IServiceMateriel<Materiel> {
      
     
     @Override
-    public List<Materiel> triermat() throws SQLException{
+    public List<Materiel> triermat(String s) throws SQLException{
      
       List<Materiel> arr=new ArrayList<>();
       ste = con.createStatement();
-      String sql = "SELECT refmat, nommat, catmat, descmat, typemat, prixmat, qtmat, imagemat FROM materiel" +
+      String sql = "SELECT refmat, nommat, catmat, descmat, typemat, prixmat, qtmat, imagemat FROM materiel where typemat like '" + s + "' " +
               " ORDER BY prixmat ASC";
       ResultSet rs=ste.executeQuery(sql);
        while (rs.next()) {                
@@ -165,11 +165,11 @@ public class ServiceMateriel implements IServiceMateriel<Materiel> {
         
     }
     
-    
-public List<Materiel> recherchemat(String s) throws SQLException{
+    @Override
+public List<Materiel> recherchemat(String s,String type) throws SQLException{
          List<Materiel> arr=new ArrayList<>();
          ste=con.createStatement();
-        ResultSet rs=ste.executeQuery("Select * from materiel where nommat like '%" + s + "%' or typemat like '%" + s + "%' or refmat like '%" + s + "%' or descmat like '%" + s + "%' or prixmat like '%" + s + "%' or qtmat like '%" + s + "%'or catmat like '%" + s + "%' ;");
+        ResultSet rs=ste.executeQuery("Select * from materiel where nommat like '%" + s +  "%' or refmat like '%" + s + "%' or descmat like '%" + s + "%' or prixmat like '%" + s + "%' or qtmat like '%" + s + "%'or catmat like '%" + s +  "%' and typemat ='"+type+"'");
            while (rs.next()) {                
                int refmat=rs.getInt(1);
                String nommat=rs.getString("nommat");
@@ -188,6 +188,44 @@ public List<Materiel> recherchemat(String s) throws SQLException{
         return arr;
     }
 
+
+public List<Materiel> afficherlistematvente() throws SQLException {
+    List<Materiel> arr=new ArrayList<>();
+    ste=con.createStatement();
+    ResultSet rs=ste.executeQuery("select * from materiel where typemat like 'vente'");
+     while (rs.next()) {                
+               int refmat=rs.getInt("refmat");
+               String nommat=rs.getString("nommat");
+               String catmat=rs.getString("catmat");
+               String descmat=rs.getString("descmat");
+               String typemat=rs.getString("typemat");
+               int prixmat= rs.getInt("prixmat");
+               int qtmat= rs.getInt("qtmat");
+               String imagemat=rs.getString("imagemat");
+               Materiel p=new Materiel(refmat, nommat, catmat, descmat, typemat, prixmat, qtmat, imagemat);
+     arr.add(p);
+     }
+    return arr;
+    }
+
+public List<Materiel> afficherlistematloc() throws SQLException {
+    List<Materiel> arr=new ArrayList<>();
+    ste=con.createStatement();
+    ResultSet rs=ste.executeQuery("select * from materiel where typemat like 'location' ");
+     while (rs.next()) {                
+               int refmat=rs.getInt("refmat");
+               String nommat=rs.getString("nommat");
+               String catmat=rs.getString("catmat");
+               String descmat=rs.getString("descmat");
+               String typemat=rs.getString("typemat");
+               int prixmat= rs.getInt("prixmat");
+               int qtmat= rs.getInt("qtmat");
+               String imagemat=rs.getString("imagemat");
+               Materiel p=new Materiel(refmat, nommat, catmat, descmat, typemat, prixmat, qtmat, imagemat);
+     arr.add(p);
+     }
+    return arr;
+    }
     
     
        

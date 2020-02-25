@@ -16,7 +16,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="623.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.AdminController">
    <children>
-      <ImageView fitHeight="652.0" fitWidth="941.0" opacity="0.22" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="652.0" fitWidth="941.0" opacity="0.15" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/mat.jpg" />
          </image>
@@ -31,12 +31,12 @@
                            <columns>
                               <TableColumn fx:id="id_reservation_recherche" minWidth="0.0" prefWidth="0.0" text="id_reservation" />
                               <TableColumn fx:id="refcol" minWidth="0.0" prefWidth="0.0" />
-                              <TableColumn fx:id="nomcol" prefWidth="105.0" text="Nom" />
-                              <TableColumn fx:id="catcol" prefWidth="140.0" text="Categorie" />
-                              <TableColumn fx:id="descrcol" prefWidth="182.0" text="Description" />
-                              <TableColumn fx:id="typecol" prefWidth="106.0" text="Type" />
-                              <TableColumn fx:id="prixcol" prefWidth="76.0" text="Prix" />
-                              <TableColumn fx:id="qtcol" minWidth="8.0" prefWidth="137.0" text="Quantite" />
+                              <TableColumn fx:id="nomcol" minWidth="0.0" prefWidth="161.0" text="Nom" />
+                              <TableColumn fx:id="catcol" prefWidth="191.0" text="Categorie" />
+                              <TableColumn fx:id="descrcol" minWidth="0.0" prefWidth="0.0" text="Description" />
+                              <TableColumn fx:id="typecol" prefWidth="138.0" text="Type" />
+                              <TableColumn fx:id="prixcol" prefWidth="104.0" text="Prix" />
+                              <TableColumn fx:id="qtcol" minWidth="8.0" prefWidth="152.0" text="Quantite" />
                            </columns>
                         </TableView>
                         <JFXButton fx:id="bsupprmat" layoutX="600.0" layoutY="406.0" onAction="#supprimermateriel" prefHeight="25.0" prefWidth="131.0" text="supprimer" textFill="#30a78b">
@@ -44,17 +44,33 @@
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="btri" layoutX="14.0" layoutY="413.0" onAction="#triermateriel" prefHeight="44.0" prefWidth="283.0" text="Trier par prix ascendant" textFill="#30a78b">
+                        <JFXButton fx:id="btri" layoutX="30.0" layoutY="414.0" onAction="#triermateriel" prefHeight="44.0" prefWidth="283.0" text="Trier par prix ascendant" textFill="#30a78b">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
                         </JFXButton>
-                        <TextField fx:id="txtrech" layoutX="188.0" layoutY="14.0" prefHeight="31.0" prefWidth="337.0" />
-                        <JFXButton fx:id="brechmat" layoutX="566.0" layoutY="8.0" onAction="#cherchermateriel" prefHeight="25.0" prefWidth="131.0" text="chercher" textFill="#30a78b">
+                        <TextField fx:id="txtrech" layoutX="287.0" layoutY="16.0" prefHeight="31.0" prefWidth="337.0" />
+                        <JFXButton fx:id="brechmat" layoutX="610.0" layoutY="9.0" onAction="#cherchermateriel" prefHeight="25.0" prefWidth="131.0" text="chercher" textFill="#30a78b">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
                         </JFXButton>
+                        <JFXComboBox fx:id="txttype" layoutX="14.0" layoutY="22.0" onAction="#typeaction" prefHeight="25.0" prefWidth="186.0" promptText="Vente/Location" />
+                        <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="575.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/delete.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="11.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/sort.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="32.0" fitWidth="38.0" layoutX="242.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/search.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
               </content>
@@ -63,25 +79,53 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <JFXButton fx:id="bajoutermat" layoutX="584.0" layoutY="114.0" onAction="#ajoutermateriel" prefHeight="25.0" prefWidth="120.0" text="ajouter" textFill="#30a78b">
+                        <JFXButton fx:id="bajoutermat" layoutX="403.0" layoutY="115.0" onAction="#ajoutermateriel" prefHeight="44.0" prefWidth="216.0" text="Ajouter au stock" textFill="#30a78b">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="bmodif" layoutX="579.0" layoutY="190.0" onAction="#modifiermateriel" prefHeight="25.0" prefWidth="120.0" text="modifier" textFill="#30a78b">
+                        <JFXButton fx:id="bmodif" layoutX="462.0" layoutY="225.0" onAction="#modifiermateriel" prefHeight="25.0" prefWidth="120.0" text="Modifier" textFill="#30a78b">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
                         </JFXButton>
-                        <JFXTextField fx:id="txtrefmat" focusColor="#30a78b" layoutX="36.0" layoutY="39.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Reference" />
-                        <JFXTextField fx:id="txtnommat" focusColor="#30a78b" layoutX="36.0" layoutY="99.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Nom Materiel" />
-                        <JFXTextField fx:id="txtdescrmat" focusColor="#30a78b" layoutX="36.0" layoutY="219.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Description" />
-                        <JFXTextField fx:id="txtimgmat" focusColor="#30a78b" layoutX="36.0" layoutY="455.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Image" />
-                        <JFXTextField fx:id="txtqtmat" focusColor="#30a78b" layoutX="36.0" layoutY="402.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Quantité dispo" />
-                        <JFXTextField fx:id="txtprixmat" focusColor="#30a78b" layoutX="36.0" layoutY="351.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Prix" />
-                        <Label fx:id="lblStatus" layoutX="627.0" layoutY="14.0" text="Label" />
-                        <JFXComboBox fx:id="txtcatmat" layoutX="30.0" layoutY="175.0" prefHeight="25.0" prefWidth="186.0" />
-                        <JFXComboBox fx:id="txttypemat" layoutX="30.0" layoutY="289.0" prefHeight="25.0" prefWidth="186.0" />
+                        <JFXTextField fx:id="txtrefmat" focusColor="#30a78b" layoutX="36.0" layoutY="39.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Reference">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="txtnommat" focusColor="#30a78b" layoutX="36.0" layoutY="99.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Nom Materiel">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="txtdescrmat" focusColor="#30a78b" layoutX="36.0" layoutY="219.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Description">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="txtimgmat" focusColor="#30a78b" layoutX="36.0" layoutY="455.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Image">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="txtqtmat" focusColor="#30a78b" layoutX="36.0" layoutY="402.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Quantité dispo">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="txtprixmat" focusColor="#30a78b" layoutX="36.0" layoutY="351.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Prix">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></JFXTextField>
+                        <Label fx:id="lblStatus" layoutX="648.0" layoutY="440.0" text="Label" />
+                        <JFXComboBox fx:id="txtcatmat" layoutX="30.0" layoutY="175.0" prefHeight="25.0" prefWidth="186.0" promptText="Catégorie" />
+                        <JFXComboBox fx:id="txttypemat" layoutX="30.0" layoutY="289.0" prefHeight="25.0" prefWidth="186.0" promptText="Vente/Location" />
+                        <ImageView fitHeight="36.0" fitWidth="56.0" layoutX="385.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/add.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="432.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/modify.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
               </content>
