@@ -160,7 +160,7 @@ public class ServiceEspece implements IEspece<Espece>
                 String description=rs.getString("description");
 
       
-               Espece e=new Espece( nom,  saison,  type,  description, mode , lieu);
+               Espece e=new Espece( nom,  type,  mode,  lieu, saison , description);
      arr.add(e);
      }
     return arr;

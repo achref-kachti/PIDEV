@@ -20,7 +20,7 @@ public class Espece {
     private String lieu;
     
 
-    public Espece(int id, String nom, String saison, String type, String description,String mode,String lieu) {
+    public Espece(int id, String nom, String type, String mode, String lieu,String saison,String description) {
         this.id = id;
         this.nom = nom;
         this.saison = saison;
@@ -30,7 +30,7 @@ public class Espece {
         this.lieu=lieu;
     }
 
-    public Espece(String nom, String saison, String type, String description,String mode ,String lieu) {
+    public Espece(String nom, String type, String mode, String lieu,String saison,String description) {
         this.nom = nom;
         this.saison = saison;
         this.type = type;

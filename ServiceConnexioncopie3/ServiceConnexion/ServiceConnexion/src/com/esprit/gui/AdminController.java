@@ -8,6 +8,8 @@ package com.esprit.gui;
 import com.esprit.Entite.Materiel;
 import com.esprit.Service.ServiceMateriel;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXListView;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -33,6 +35,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 /**
  * FXML Controller class
@@ -43,7 +47,7 @@ public class AdminController implements Initializable {
  ObservableList<String> txtcatmatlist = FXCollections.observableArrayList("chasse","peche");
  ObservableList<String> txttypematlist = FXCollections.observableArrayList("vente","location");
  ServiceMateriel s= new ServiceMateriel();
- List <Materiel> list;
+ JFXListView <?> list;
  @FXML
     private TextField txtrefmat;
     @FXML
@@ -103,6 +107,9 @@ public class AdminController implements Initializable {
     private JFXComboBox<String> txttype;
     @FXML
     private ImageView back;
+    @FXML
+    private JFXListView<String> listee;
+  
    
     /**
      * Initializes the controller class.
@@ -230,9 +237,26 @@ public class AdminController implements Initializable {
             int prixmat = Integer.parseInt(txtprixmat.getText());
             int qtmat = Integer.parseInt(txtqtmat.getText());
             String imagemat = txtimgmat.getText();
+           //String imagemat =  filechoose(event);
+       FileChooser fc = new FileChooser();
+       String n = null;
+       fc.setInitialDirectory(new File ("C:\\Users\\sarah\\Documents\\NetBeansProjects\\ServiceConnexioncopie3\\ServiceConnexion\\ServiceConnexion\\resources"));
+       fc.getExtensionFilters().addAll(new ExtensionFilter("*.jpg","*.png"));
+       File selectedfile=fc.showOpenDialog(null);
+       if(selectedfile!=null){
+         listee.getItems().add(selectedfile.getName());
+          String name_img= selectedfile.getName();
+          System.out.print(name_img);
+         txtimgmat.setText(name_img);
+         n=name_img;
+           
+         }else{
+           System.out.println("file not valid");
+    
+       }
             
             
-            Materiel m = new Materiel(refmat,nommat,catmat,descmat,typemat,prixmat,qtmat,imagemat);
+            Materiel m = new Materiel(refmat,nommat,catmat,descmat,typemat,prixmat,qtmat,n);
             s.ajoutermat(m);
             
             lblStatus.setTextFill(Color.GREEN);
@@ -289,6 +313,24 @@ public class AdminController implements Initializable {
          int qtmat = Integer.parseInt(txtqtmat.getText());
          String imagemat = txtimgmat.getText();
          
+         FileChooser fc = new FileChooser();
+       String n = null;
+       fc.setInitialDirectory(new File ("C:\\Users\\sarah\\Documents\\NetBeansProjects\\ServiceConnexioncopie3\\ServiceConnexion\\ServiceConnexion\\resources"));
+       fc.getExtensionFilters().addAll(new ExtensionFilter("*.jpg","*.png"));
+       File selectedfile=fc.showOpenDialog(null);
+       if(selectedfile!=null){
+         listee.getItems().add(selectedfile.getName());
+          String name_img= selectedfile.getName();
+          System.out.print(name_img);
+         txtimgmat.setText(name_img);
+         n=name_img;
+           
+         }else{
+           System.out.println("file not valid");
+    
+       }
+            
+         
          Materiel m1 = new Materiel(refmat,nommat,catmat,descmat,typemat,prixmat,qtmat,imagemat);
          s.modifiermat(m1,refmat);
          tblData.getItems().clear();
@@ -337,6 +379,31 @@ public class AdminController implements Initializable {
     @FXML
     private void typeaction(ActionEvent event) {
         this.buildData();
+    }
+
+ /*
+    private String filechoose(ActionEvent event) {
+       FileChooser fc = new FileChooser();
+       String n = null;
+       fc.setInitialDirectory(new File ("C:\\Users\\sarah\\Documents\\NetBeansProjects\\ServiceConnexioncopie3\\ServiceConnexion\\ServiceConnexion\\resources"));
+       fc.getExtensionFilters().addAll(new ExtensionFilter("*.jpg","*.png"));
+       File selectedfile=fc.showOpenDialog(null);
+       if(selectedfile!=null){
+         listee.getItems().add(selectedfile.getName());
+          String name_img= selectedfile.getName();
+          System.out.print(name_img);
+         txtimgmat.setText(name_img);
+         n=name_img;
+           
+         }else{
+           System.out.println("file not valid");
+       }
+       return n;
+       
+    }*/
+
+    @FXML
+    private void filechoose(ActionEvent event) {
     }
 }
 
