@@ -377,7 +377,11 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.rafraichir();
+<<<<<<< HEAD
         System.out.println(u);
+=======
+        
+>>>>>>> 9a7e7bbd8bfb0003bc2fe51d365b75c28be148f6
         // TODO
     }    
 

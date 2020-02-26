@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="702.0" prefWidth="1038.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminChauffeursController">
+   <children>
+      <TabPane layoutX="-3.0" layoutY="-2.0" prefHeight="702.0" prefWidth="1097.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Ajouter chauffeur">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="692.0" prefWidth="1107.0">
+                     <children>
+                        <ImageView fx:id="img_fondChauffeur" fitHeight="590.0" fitWidth="1044.0" layoutX="-3.0" layoutY="2.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/img1.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ImageView>
+                        <Label layoutX="73.0" layoutY="41.0" text="cin" />
+                        <Label layoutX="69.0" layoutY="114.0" text="nom" />
+                        <Label layoutX="60.0" layoutY="179.0" text="prenom" />
+                        <Label layoutX="54.0" layoutY="247.0" text="telephone" />
+                        <TableView fx:id="tab_AfficherChauffeursAd1" layoutX="560.0" layoutY="-1.0" onMouseClicked="#selectionnerChauffeur1" prefHeight="590.0" prefWidth="527.0">
+                          <columns>
+                            <TableColumn fx:id="col_cin1" prefWidth="96.0" text="cin" />
+                            <TableColumn fx:id="col_nom1" prefWidth="130.0" text="nom" />
+                              <TableColumn fx:id="col_prenom1" prefWidth="121.0" text="prenom" />
+                              <TableColumn fx:id="col_telephone1" prefWidth="196.0" text="telephone" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btn_ajoutChauffeur" layoutX="14.0" layoutY="313.0" mnemonicParsing="false" onAction="#ajoutChauffeur" prefHeight="61.0" prefWidth="135.0" text="Ajouter chauffeur" textAlignment="JUSTIFY" textOverrun="WORD_ELLIPSIS" />
+                        <TextField fx:id="tf_cinAjouter" layoutX="188.0" layoutY="37.0" />
+                        <TextField fx:id="tf_nomAjouter" layoutX="188.0" layoutY="101.0" />
+                        <TextField fx:id="tf_prenomAjouter" layoutX="188.0" layoutY="175.0" />
+                        <TextField fx:id="tf_telAjouter" layoutX="188.0" layoutY="252.0" />
+                        <Button fx:id="btn_TriChauffeursNom" layoutX="355.0" layoutY="305.0" mnemonicParsing="false" onAction="#triChauffeursNom" prefHeight="63.0" prefWidth="182.0" text="Trier par nom" />
+                        <Label layoutX="23.0" layoutY="431.0" prefHeight="43.0" prefWidth="167.0" text="critére de recherche :" />
+                        <TextField fx:id="tf_rechercheChauffeur" layoutX="155.0" layoutY="430.0" prefHeight="46.0" prefWidth="218.0" />
+                        <Button fx:id="btn_rechercheChauffeur" layoutX="391.0" layoutY="431.0" mnemonicParsing="false" onAction="#rechercheChauffeur" prefHeight="53.0" prefWidth="146.0" text="Recherche" />
+                        <Button fx:id="btn_pdfChauff" layoutX="18.0" layoutY="502.0" mnemonicParsing="false" onAction="#pdfChauff" prefHeight="76.0" prefWidth="131.0" text="creer pdf" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Modifier chauffeur">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="img_fondChauffeur11" fitHeight="598.0" fitWidth="1045.0" layoutX="7.0" layoutY="17.0" onMouseClicked="#selectionnerChauffeur2" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/img1.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ImageView>
+                        <Label layoutX="47.0" layoutY="140.0" text="CIN du chauffeur à modifier :" />
+                        <Label layoutX="47.0" layoutY="200.0" text="nouveau nom :" />
+                        <Label layoutX="47.0" layoutY="276.0" text="nouveau prenom :" />
+                        <Label layoutX="50.0" layoutY="344.0" text="nouveau numero telephone :" />
+                        <TextField fx:id="tf_cinModif" layoutX="260.0" layoutY="127.0" />
+                        <TextField fx:id="tf_nomModif" layoutX="260.0" layoutY="196.0" />
+                        <TextField fx:id="tf_prenomModif" layoutX="260.0" layoutY="263.0" />
+                        <TextField fx:id="tf_telModif" layoutX="260.0" layoutY="340.0" />
+                        <TableView fx:id="tab_AfficherChauffeursAd2" layoutX="481.0" layoutY="40.0" onMouseClicked="#selectionnerChauffeur2" prefHeight="389.0" prefWidth="500.0">
+                          <columns>
+                            <TableColumn fx:id="col_cin2" prefWidth="75.0" text="cin" />
+                            <TableColumn fx:id="col_nom2" prefWidth="154.0" text="nom" />
+                              <TableColumn fx:id="col_prenom2" prefWidth="102.0" text="prenom" />
+                              <TableColumn fx:id="col_telephone2" prefWidth="168.0" text="telephone" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btn_modifChauffeurslct" layoutX="658.0" layoutY="510.0" mnemonicParsing="false" onAction="#modifonSelect" prefHeight="88.0" prefWidth="303.0" text="Modifier chauffeur" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Supprimer Chauffeur">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="img_fondChauffeur1" fitHeight="598.0" fitWidth="1045.0" layoutX="-3.0" layoutY="7.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/img1.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ImageView>
+                        <Button fx:id="btn_supprimerAdminSlct" layoutX="76.0" layoutY="496.0" mnemonicParsing="false" onAction="#deleteonSelect" prefHeight="87.0" prefWidth="166.0" text="Supprimer chauffeur" />
+                        <TableView fx:id="tab_AfficherChauffeursAd3" layoutX="23.0" layoutY="32.0" onMouseClicked="#selectionnerChauffeur3" prefHeight="406.0" prefWidth="935.0">
+                          <columns>
+                            <TableColumn fx:id="col_cin3" prefWidth="209.0" text="cin" />
+                            <TableColumn fx:id="col_nom3" prefWidth="208.0" text="nom" />
+                              <TableColumn fx:id="col_prenom3" prefWidth="263.0" text="prenom" />
+                              <TableColumn fx:id="col_telephone3" prefWidth="254.0" text="telephone" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

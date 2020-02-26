@@ -45,6 +45,11 @@ public class FXMLuserController implements Initializable {
     @FXML
     private JFXTextField email_user;
     @FXML
+<<<<<<< HEAD
+=======
+    private JFXButton acceder_user;
+    @FXML
+>>>>>>> 9a7e7bbd8bfb0003bc2fe51d365b75c28be148f6
     private AnchorPane int_creer;
     @FXML
     private JFXTextField last_name;
@@ -57,14 +62,22 @@ public class FXMLuserController implements Initializable {
     @FXML
     private JFXTextField tel;
     @FXML
+<<<<<<< HEAD
+=======
+    private JFXButton creer_compte;
+    @FXML
+>>>>>>> 9a7e7bbd8bfb0003bc2fe51d365b75c28be148f6
     private JFXTextField name;
     @FXML
     private Label warn_label_compte;
     @FXML
+<<<<<<< HEAD
     private JFXButton acceder_user;
     @FXML
     private JFXButton creer_compte;
     @FXML
+=======
+>>>>>>> 9a7e7bbd8bfb0003bc2fe51d365b75c28be148f6
     private JFXButton creer_button1;
     
     public void rafraichir()
@@ -131,6 +144,7 @@ public class FXMLuserController implements Initializable {
         }
         if((email.equals("admin@gmail.com")) && password.equals("admin"))
         {
+<<<<<<< HEAD
               FXMLLoader loader = new FXMLLoader(getClass().getResource("admin_acceuil.fxml"));
             //FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
             // FXMLLoader loader = new FXMLLoader(getClass().getResource("admin_1.fxml"));
@@ -138,6 +152,14 @@ public class FXMLuserController implements Initializable {
              Admin_acceuilController apc = loader.getController();
              //FXMLDocumentController apc = loader.getController();
              //Admin_1Controller apc = loader.getController();
+=======
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+             //FXMLLoader loader = new FXMLLoader(getClass().getResource("admin_1.fxml"));
+             Parent root = loader.load();
+             FXMLDocumentController apc = loader.getController();
+            // Admin_1Controller apc = loader.getController();
+>>>>>>> 9a7e7bbd8bfb0003bc2fe51d365b75c28be148f6
                  email_user.getScene().setRoot(root);
              
         
@@ -147,6 +169,7 @@ public class FXMLuserController implements Initializable {
             System.out.println("user normal existant");
             try {
                 u=userc.recuperer_user_email(email);
+<<<<<<< HEAD
                  //FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML.fxml"));
                  FXMLLoader loader = new FXMLLoader(getClass().getResource("User_acceuil.fxml"));
              Parent root = loader.load();
@@ -154,6 +177,13 @@ public class FXMLuserController implements Initializable {
              User_acceuilController iuser_c = loader.getController();
              iuser_c.setUser(u);
              // iuser_c.rafraichir();
+=======
+                 FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML.fxml"));
+             Parent root = loader.load();
+             FXMLController iuser_c = loader.getController();
+             iuser_c.setUser(u);
+             iuser_c.rafraichir();
+>>>>>>> 9a7e7bbd8bfb0003bc2fe51d365b75c28be148f6
              
                  email_user.getScene().setRoot(root);
              
@@ -232,9 +262,12 @@ public class FXMLuserController implements Initializable {
         else
                 {int_creer.setVisible(false);}
     }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 9a7e7bbd8bfb0003bc2fe51d365b75c28be148f6
     
     
     

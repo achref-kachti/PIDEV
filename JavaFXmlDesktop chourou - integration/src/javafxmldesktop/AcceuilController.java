@@ -44,7 +44,10 @@ public class AcceuilController implements Initializable {
                 Parent root = loader.load();
                 AffichePersonneController apc = loader.getController();
                 
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 9a7e7bbd8bfb0003bc2fe51d365b75c28be148f6
                 btn_user.getScene().setRoot(root);
     }
 
