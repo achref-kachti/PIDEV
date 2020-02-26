@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="610.0" prefWidth="968.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmldesktop.UserController">
+   <children>
+      <ImageView fitHeight="711.0" fitWidth="978.0" layoutX="-5.0" layoutY="-21.0" opacity="0.22" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Img/poisson.jpg" />
+         </image>
+      </ImageView>
+      <JFXTabPane layoutX="18.0" layoutY="22.0" prefHeight="566.0" prefWidth="923.0">
+         <tabs>
+            <Tab fx:id="cataloguetab" text="Catalogue">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="923.0">
+                     <children>
+                        <JFXListView fx:id="listecatalogue" layoutX="14.0" layoutY="24.0" onMouseClicked="#listviewclicked" prefHeight="486.0" prefWidth="232.0" />
+                        <JFXButton fx:id="baddtocart" layoutX="672.0" layoutY="373.0" onAction="#ajouteraupanier" prefHeight="44.0" prefWidth="237.0" text="Ajouter au panier" textFill="#30a78b">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fx:id="image_mat" fitHeight="226.0" fitWidth="366.0" layoutX="512.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+                        <JFXTextField fx:id="nommat" focusColor="#30a78b" layoutX="288.0" layoutY="278.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Nom">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="descmat" focusColor="#30a78b" layoutX="288.0" layoutY="323.0" prefHeight="100.0" prefWidth="174.0" promptText="titre" text="Description">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="prixmat" focusColor="#30a78b" layoutX="288.0" layoutY="472.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Prix">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font></JFXTextField>
+                        <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="663.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/add.png" />
+                           </image>
+                        </ImageView>
+                        <JFXTextField fx:id="typematt" focusColor="#30a78b" layoutX="288.0" layoutY="434.0" prefHeight="25.0" prefWidth="174.0" promptText="titre" text="Type">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="cataloguetab1" text="Panier">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="bsupprimer" layoutX="692.0" layoutY="283.0" onAction="#supprimerdupanier" prefHeight="44.0" prefWidth="237.0" text="Annuler achat" textFill="#30a78b">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fx:id="image_mat1" fitHeight="237.0" fitWidth="431.0" layoutX="485.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
+                        <JFXButton fx:id="btripan" layoutX="692.0" layoutY="327.0" onAction="#tripanier" prefHeight="44.0" prefWidth="237.0" text="Trier par quantité" textFill="#30a78b">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </JFXButton>
+                       <TableView fx:id="tblpanier" layoutX="7.0" layoutY="82.0" onMouseClicked="#afficherphoto" prefHeight="431.0" prefWidth="464.0">
+                          <columns>
+                            <TableColumn fx:id="refmatcol" prefWidth="134.0" text="Materiel" />
+                            <TableColumn fx:id="idusercol" prefWidth="103.0" text="Client" />
+                              <TableColumn fx:id="qtacheteecol" prefWidth="136.0" text="Quantite achetee" />
+                              <TableColumn fx:id="prixcol" prefWidth="90.0" text="Prix" />
+                          </columns>
+                        </TableView>
+                        <Label fx:id="tot" layoutX="515.0" layoutY="424.0" prefHeight="21.0" prefWidth="132.0" text="Total à payer" textFill="#0e9a9a">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font></Label>
+                        <JFXTextField fx:id="champtot" layoutX="478.0" layoutY="463.0" />
+                        <JFXButton fx:id="bpdf" layoutX="671.0" layoutY="384.0" onAction="#genererpdf" prefHeight="44.0" prefWidth="258.0" text="Génerer la facture" textFill="#30a78b">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="brecherche" layoutX="345.0" layoutY="32.0" onAction="#cherchepanier" prefHeight="44.0" prefWidth="154.0" text="Chercher" textFill="#30a78b">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <TextField fx:id="txtrech" layoutX="39.0" layoutY="38.0" prefHeight="31.0" prefWidth="306.0" />
+                        <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="701.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/delete.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="32.0" fitWidth="41.0" layoutX="685.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/sort.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="37.0" fitWidth="40.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/search.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="36.0" fitWidth="43.0" layoutX="653.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/pdf.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="29.0" fitWidth="33.0" layoutX="475.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resources/dollar.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <ImageView fx:id="back" fitHeight="62.0" fitWidth="56.0" layoutX="32.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../resources/dollar.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
