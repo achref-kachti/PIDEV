@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="489.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.User_informationsController">
+   <children>
+      <ImageView fitHeight="601.0" fitWidth="739.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@photo-1525779350160-30931cbc2aac.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="217.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Interface" wrappingWidth="362.93670654296875">
+         <fill>
+            <LinearGradient endX="0.7938930715313395" endY="1.0" startY="0.8816794038728903">
+               <stops>
+                  <Stop color="#839759" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <font>
+            <Font size="49.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn_weather" layoutX="644.0" layoutY="364.0" mnemonicParsing="false" onAction="#afficher_weather" prefHeight="71.0" prefWidth="60.0" />
+      <ImageView fx:id="img_weather" fitHeight="69.0" fitWidth="60.0" layoutX="644.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@meteo.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="30.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des guides Disponibles pour vous">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tab_dispo" layoutX="30.0" layoutY="235.0" prefHeight="200.0" prefWidth="465.0">
+        <columns>
+          <TableColumn fx:id="col_nom" prefWidth="75.0" text="Nom" />
+          <TableColumn fx:id="col_prenom" prefWidth="75.0" text="Prenom" />
+            <TableColumn fx:id="col_adresse" prefWidth="75.0" text="Adresse" />
+            <TableColumn fx:id="col_telephone" prefWidth="75.0" text="Telephone" />
+            <TableColumn fx:id="col_specialite" prefWidth="75.0" text="Specialite" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
