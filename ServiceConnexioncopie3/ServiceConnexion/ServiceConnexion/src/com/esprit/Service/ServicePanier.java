@@ -338,7 +338,7 @@ public Paragraph pdf(int id)throws SQLException, FileNotFoundException, Document
      ResultSet rs=null;
      Paragraph p=new Paragraph("Facture du client détenant l'id: "+id+"\r\n \r\n");
      document.add(p);
-     Paragraph pp=new Paragraph("Materiel         ||        Client         ||    Quantité       ||     Prix      \r\n \r\n");
+     Paragraph pp=new Paragraph("Materiel             Client             Quantité             Prix      \r\n \r\n");
      document.add(pp);
      Paragraph ppp=new Paragraph("________________________________________________________________");
      document.add(ppp);
@@ -348,7 +348,7 @@ public Paragraph pdf(int id)throws SQLException, FileNotFoundException, Document
      ps=con.prepareStatement(query);
      rs=ps.executeQuery();
      while(rs.next()){
-         para=new Paragraph(rs.getString("nommat")+"      ||         "+rs.getString("prenom")+"      ||         "+rs.getInt("qtach")+"      ||         "+rs.getInt("prixmat"));
+         para=new Paragraph(rs.getString("nommat")+"             "+rs.getString("prenom")+"             "+rs.getInt("qtach")+"             "+rs.getInt("prixmat"));
         document.add(para);
        document.add(new Paragraph("  "));
        

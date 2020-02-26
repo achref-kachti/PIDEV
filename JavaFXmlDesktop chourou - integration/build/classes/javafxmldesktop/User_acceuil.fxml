@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="628.0" prefWidth="889.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="javafxmldesktop.User_acceuilController">
+   <children>
+      <ImageView fitHeight="704.0" fitWidth="955.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@photo-1525779350160-30931cbc2aac.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btn_user_event" layoutX="223.0" layoutY="146.0" onAction="#go_to_user_event" text="Evénements" />
+      <JFXButton fx:id="btn_user_logemet" layoutX="214.0" layoutY="257.0" onAction="#go_to_user_logement" text="Logement" />
+      <JFXButton fx:id="btn_user_espece" layoutX="203.0" layoutY="401.0" onAction="#go_to_user_espece" text="Espece" />
+      <JFXButton fx:id="btn_panier_user" layoutX="405.0" layoutY="159.0" onAction="#go_to_panier_user" text="Panier" />
+      <JFXButton fx:id="btn_transport_user" layoutX="405.0" layoutY="282.0" onAction="#go_to_transport_user" text="Transport" />
+   </children>
+</AnchorPane>
