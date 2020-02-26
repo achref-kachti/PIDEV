@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="628.0" prefWidth="889.0" style="-fx-border-color: green; -fx-border-color: red;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmldesktop.Admin_1Controller">
+   <children>
+      <ImageView fitHeight="628.0" fitWidth="889.0" layoutX="-2.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="628.0" fitWidth="889.0">
+         <image>
+            <Image url="@photo-1525779350160-30931cbc2aac.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="230.0" layoutY="81.0" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeWidth="0.0" text="DashBoard" textAlignment="CENTER">
+         <font>
+            <Font size="75.0" />
+         </font>
+      </Text>
+      <JFXTabPane prefHeight="709.0" prefWidth="837.0">
+         <tabs>
+          <Tab text="Ajouter">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: green;">
+                     <children>
+                        <Text fill="WHITE" layoutX="50.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom " wrappingWidth="39.20428466796875" />
+                        <Text fill="WHITE" layoutX="50.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom" />
+                        <Text fill="WHITE" layoutX="50.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone" />
+                        <Text fill="WHITE" layoutX="34.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse mail" />
+                        <Text fill="WHITE" layoutX="38.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password " />
+                        <Text fill="WHITE" layoutX="50.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Specialité :" />
+                        <TextField fx:id="tf_nom" accessibleRole="NODE" layoutX="134.0" layoutY="61.0" />
+                        <TextField fx:id="tf_prenom" layoutX="134.0" layoutY="122.0" />
+                        <TextField fx:id="tf_telephone" layoutX="134.0" layoutY="184.0" />
+                        <TextField fx:id="tf_mail" layoutX="134.0" layoutY="241.0" />
+                        <Button fx:id="btn_ajouter_guide_admin" layoutX="665.0" layoutY="478.0" mnemonicParsing="false" onAction="#AjouterGuide" prefHeight="38.0" prefWidth="158.0" text="Ajouter" />
+                        <Button fx:id="btn_mail" layoutX="665.0" layoutY="216.0" minWidth="34.0" mnemonicParsing="false" onAction="#envoyer_mail" prefHeight="76.0" prefWidth="79.0" text="Button" />
+                        <HBox layoutX="136.0" layoutY="396.0" prefHeight="57.0" prefWidth="259.0">
+                           <children>
+                              <CheckBox fx:id="chassebox" mnemonicParsing="false" onAction="#handlechasseBox" text="Chasse" textFill="WHITE" />
+                              <CheckBox fx:id="pechebox" mnemonicParsing="false" onAction="#handlepecheBox" text="Peche" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <PasswordField fx:id="tf_password" layoutX="134.0" layoutY="309.0" />
+                        <ImageView fitHeight="73.0" fitWidth="50.0" layoutX="680.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@mail.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="retour_acceuil" layoutX="45.0" layoutY="537.0" mnemonicParsing="false" onAction="#retour_acceuil" prefHeight="25.0" prefWidth="114.0" text="retour" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="afficher">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="602.0">
+                     <children>
+                        <Button fx:id="btn_trier_guide" layoutX="633.0" layoutY="528.0" mnemonicParsing="false" onAction="#trierGuides" prefHeight="37.0" prefWidth="114.0" text="Tri par nom" />
+                        <TableView fx:id="tab_afficher_guides" layoutX="52.0" layoutY="76.0" prefHeight="245.0" prefWidth="676.0">
+                          <columns>
+                            <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="0.0" text="ID" />
+                            <TableColumn fx:id="col_nom" prefWidth="123.0" text="Nom" />
+                              <TableColumn fx:id="col_prenom" prefWidth="166.0" text="Prenom" />
+                              <TableColumn fx:id="col_telephone" prefWidth="160.0" text="Telephone" />
+                              <TableColumn fx:id="col_adresse" minWidth="0.0" prefWidth="0.0" text="Adresse" />
+                              <TableColumn fx:id="col_password" minWidth="0.0" prefWidth="0.0" text="password" />
+                              <TableColumn fx:id="col_specialite" prefWidth="249.0" text="Specialite" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btn_chercher_guide" layoutX="286.0" layoutY="350.0" mnemonicParsing="false" onAction="#chercherGuides" prefHeight="38.0" prefWidth="167.0" text="Recherche par nom" />
+                        <TextField fx:id="tf_nom_chcercher" layoutX="52.0" layoutY="353.0" />
+                        <Button fx:id="btn_supprimer_guides" layoutX="241.0" layoutY="531.0" mnemonicParsing="false" onAction="#supprimer_un_guide" prefHeight="31.0" prefWidth="121.0" text="Supprimer" />
+                        <Button fx:id="btn_mod" layoutX="419.0" layoutY="531.0" mnemonicParsing="false" onAction="#mod_guide" prefHeight="31.0" prefWidth="121.0" text="Modifier" />
+                        <Button fx:id="go_to_button1" layoutX="32.0" layoutY="487.0" mnemonicParsing="false" onAction="#go_to_res_guide_ofc" prefHeight="88.0" prefWidth="129.0" />
+                        <ImageView fitHeight="93.0" fitWidth="134.0" layoutX="29.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@res.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+   <opaqueInsets>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </opaqueInsets>
+</AnchorPane>
