@@ -49,7 +49,7 @@ import javafx.scene.text.*;
  *
  * @author moetez
  */
-public class EspeController implements Initializable {
+public class AdminEspeceController implements Initializable {
 
    String modeListe[] = {"a","b","c","d","e"};
   
@@ -157,13 +157,11 @@ public class EspeController implements Initializable {
                 Parent root = loader.load();
                 AdminLogementController alc = loader.getController();*/
        
-                col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+               // col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
                 col_nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
                 col_type.setCellValueFactory(new PropertyValueFactory<>("type"));
                 col_mode.setCellValueFactory(new PropertyValueFactory<>("mode"));
                  col_lieu.setCellValueFactory(new PropertyValueFactory<>("lieu"));
-
-
                 col_saison.setCellValueFactory(new PropertyValueFactory<>("saison"));
                 col_desc.setCellValueFactory(new PropertyValueFactory<>("description"));
 
@@ -171,7 +169,7 @@ public class EspeController implements Initializable {
                
               tab_especes.setItems(obs);
         } catch (SQLException ex) {
-            Logger.getLogger(EspeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminEspeceController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }    
@@ -189,7 +187,7 @@ public class EspeController implements Initializable {
                 btn_modifier.getScene().setRoot(root);*/
         FXMLLoader loader = new FXMLLoader(getClass().getResource("update.fxml"));
         Parent root = loader.load();
-               UpdateController apc = loader.getController();
+               UpdateEspeceController apc = loader.getController();
          String nom = tab_especes.getSelectionModel().getSelectedItem().getNom();
          String lieu = tab_especes.getSelectionModel().getSelectedItem().getLieu();
          String desc = tab_especes.getSelectionModel().getSelectedItem().getDescription();
@@ -271,7 +269,7 @@ public class EspeController implements Initializable {
        /*     FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminLogement.fxml"));*/
                
                 Parent root = loader.load();
-                EspeController alc = loader.getController();
+                AdminEspeceController alc = loader.getController();
                col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
                 col_nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
                 col_type.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -333,7 +331,7 @@ public class EspeController implements Initializable {
                     
         }
          catch (SQLException ex) {
-            Logger.getLogger(EspeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminEspeceController.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
         else

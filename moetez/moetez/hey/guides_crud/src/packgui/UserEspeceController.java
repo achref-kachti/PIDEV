@@ -58,7 +58,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author moetez
  */
-public class UserController implements Initializable {
+public class UserEspeceController implements Initializable {
 
     private TableColumn<Espece, String> col_nom1;
     private TableColumn<Espece, String> col_type1;
@@ -81,11 +81,12 @@ private ObservableList data;
     private TableColumn<Espece, String> col_lieuuser;
     @FXML
     private TableColumn<Espece, String> col_saisonuser;
+    @FXML
     private TableColumn<Espece, String> col_descriptionuser;
     @FXML
     private JFXListView<String> liste_event;
     @FXML
-    private TableColumn<?, ?> col_typeuser;
+    private TableColumn<Espece,String> col_typeuser;
     @FXML
     private JFXCheckBox recherche_chasse;
     @FXML
@@ -114,7 +115,7 @@ private ObservableList data;
     /**
      * Initializes the controller class.
      */
-     public UserController(){
+     public UserEspeceController(){
     		weatherManager = new WeatherManager();
     		
     }
@@ -127,15 +128,7 @@ private ObservableList data;
             
          try {
             list = sl.readAll();
-       ObservableList<PieChart.Data> pieChartData
-                = FXCollections.observableArrayList(
-                new PieChart.Data("Apache", 52),
-                new PieChart.Data("Nginx", 31),
-                new PieChart.Data("IIS", 12),
-                new PieChart.Data("LiteSpeed", 2),
-                new PieChart.Data("Google server", 1),
-                new PieChart.Data("Others", 2));
-       chart =new PieChart(pieChartData);
+      
             ObservableList<Espece> obs = FXCollections.observableArrayList(list); 
             
        /*     FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminLogement.fxml"));
@@ -150,14 +143,14 @@ private ObservableList data;
                 
   
                 col_lieuuser.setCellValueFactory(new PropertyValueFactory<>("lieu"));
-
+                 col_descriptionuser.setCellValueFactory(new PropertyValueFactory<>("description"));
 
              
                 //col_Img1.setCellValueFactory(new PropertyValueFactory<>("id"));
                
               tab_user.setItems(obs);
         } catch (SQLException ex) {
-            Logger.getLogger(EspeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminEspeceController.class.getName()).log(Level.SEVERE, null, ex);
         }
         // TODO
     }
@@ -186,7 +179,7 @@ private ObservableList data;
                  
                  
                } catch (SQLException ex) {
-                 Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                 Logger.getLogger(UserEspeceController.class.getName()).log(Level.SEVERE, null, ex);
              }
              
              liste_event.getItems().clear();
@@ -223,24 +216,29 @@ private ObservableList data;
                 Parent root = loader.load();
                 AdminLogementController alc = loader.getController();*/
        
-                col_nomuser.setCellValueFactory(new PropertyValueFactory<>("nom"));
+                      col_nomuser.setCellValueFactory(new PropertyValueFactory<>("nom"));
                 col_typeuser.setCellValueFactory(new PropertyValueFactory<>("type"));
                 col_modeuser.setCellValueFactory(new PropertyValueFactory<>("mode"));
                 col_saisonuser.setCellValueFactory(new PropertyValueFactory<>("saison"));
                 
   
                 col_lieuuser.setCellValueFactory(new PropertyValueFactory<>("lieu"));
+                 col_descriptionuser.setCellValueFactory(new PropertyValueFactory<>("description"));
+               
 
 
              
                 //col_Img1.setCellValueFactory(new PropertyValueFactory<>("id"));
                
               tab_user.setItems(o);
+
              
             } catch (SQLException ex) {
-                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UserEspeceController.class.getName()).log(Level.SEVERE, null, ex);
             }
                   }
+                                            //  tab_user.getItems().clear();
+
                  
 
     }
@@ -265,13 +263,14 @@ private ObservableList data;
                 Parent root = loader.load();
                 AdminLogementController alc = loader.getController();*/
        
-                col_nomuser.setCellValueFactory(new PropertyValueFactory<>("nom"));
+                       col_nomuser.setCellValueFactory(new PropertyValueFactory<>("nom"));
                 col_typeuser.setCellValueFactory(new PropertyValueFactory<>("type"));
                 col_modeuser.setCellValueFactory(new PropertyValueFactory<>("mode"));
                 col_saisonuser.setCellValueFactory(new PropertyValueFactory<>("saison"));
                 
   
                 col_lieuuser.setCellValueFactory(new PropertyValueFactory<>("lieu"));
+                 col_descriptionuser.setCellValueFactory(new PropertyValueFactory<>("description"));
 
 
              
@@ -280,9 +279,11 @@ private ObservableList data;
               tab_user.setItems(o);
                 
             } catch (SQLException ex) {
-                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UserEspeceController.class.getName()).log(Level.SEVERE, null, ex);
             }
                   }
+                   //tab_user.getItems().clear();
+
    
     }
     	 	

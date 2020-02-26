@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/moetez/Desktop/moetez/moetez/hey/guides_crud/src/packgui/Weather.java</file>
-            <file>file:/C:/Users/moetez/Desktop/moetez/moetez/hey/guides_crud/src/packgui/EspeController.java</file>
-            <file>file:/C:/Users/moetez/Desktop/moetez/moetez/hey/guides_crud/src/packgui/HomePage.java</file>
-            <file>file:/C:/Users/moetez/Desktop/moetez/moetez/hey/guides_crud/src/entites/WeatherManager.java</file>
-            <file>file:/C:/Users/moetez/Desktop/moetez/moetez/hey/guides_crud/src/packgui/WeatherManager.java</file>
-            <file>file:/C:/Users/moetez/Desktop/moetez/moetez/hey/guides_crud/src/packgui/UserController.java</file>
-            <file>file:/C:/Users/moetez/Desktop/moetez/moetez/hey/guides_crud/src/packgui/WindowController.java</file>
+            <file>file:/C:/Users/moetez/Desktop/PIDEV/moetez/moetez/hey/guides_crud/src/packgui/AcceuilEspeceController.java</file>
+            <file>file:/C:/Users/moetez/Desktop/PIDEV/moetez/moetez/hey/guides_crud/src/entites/Espece.java</file>
+            <file>file:/C:/Users/moetez/Desktop/PIDEV/moetez/moetez/hey/guides_crud/src/packgui/UserEspeceController.java</file>
+            <file>file:/C:/Users/moetez/Desktop/PIDEV/moetez/moetez/hey/guides_crud/src/Service/ServiceEspece.java</file>
+            <file>file:/C:/Users/moetez/Desktop/PIDEV/moetez/moetez/hey/guides_crud/src/packgui/HomePage.java</file>
+            <file>file:/C:/Users/moetez/Desktop/PIDEV/moetez/moetez/hey/guides_crud/src/packgui/AcceuilEspece.fxml</file>
+            <file>file:/C:/Users/moetez/Desktop/PIDEV/moetez/moetez/hey/guides_crud/src/packgui/AdminEspece.fxml</file>
+            <file>file:/C:/Users/moetez/Desktop/PIDEV/moetez/moetez/hey/guides_crud/src/packgui/UpdateEspece.fxml</file>
+            <file>file:/C:/Users/moetez/Desktop/PIDEV/moetez/moetez/hey/guides_crud/src/packgui/UserEspece.fxml</file>
+            <file>file:/C:/Users/moetez/Desktop/PIDEV/moetez/moetez/hey/guides_crud/src/packgui/AdminEspeceController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
  *
  * @author moetez
  */
-public class UpdateController implements Initializable {
+public class UpdateEspeceController implements Initializable {
 
     @FXML
     private JFXTextField m_nom;

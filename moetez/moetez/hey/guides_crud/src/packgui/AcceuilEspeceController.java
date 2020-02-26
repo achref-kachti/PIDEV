@@ -22,7 +22,7 @@ import javafx.scene.image.ImageView;
  *
  * @author moetez
  */
-public class AccController implements Initializable {
+public class AcceuilEspeceController implements Initializable {
 
     @FXML
     private Button btn_admin;
@@ -43,20 +43,20 @@ public class AccController implements Initializable {
 
     @FXML
     private void Admin(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("espe.fxml"));
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminEspece.fxml"));
             
                 Parent root = loader.load();
-             EspeController apc = loader.getController();
+             AdminEspeceController apc = loader.getController();
                
                 btn_admin.getScene().setRoot(root);
     }
 
     @FXML
     private void User(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("User.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserEspece.fxml"));
             
                 Parent root = loader.load();
-                UserController apc = loader.getController();
+                UserEspeceController apc = loader.getController();
                 
                 btn_user.getScene().setRoot(root);
     }
