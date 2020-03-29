@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="628.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmldesktop.Admin_acceuilController">
+   <children>
+      <ImageView fitHeight="628.0" fitWidth="967.0" layoutY="1.0" opacity="0.48" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@photo-1525779350160-30931cbc2aac.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btn_event" layoutX="98.0" layoutY="519.0" onAction="#go_to_event" prefHeight="53.0" prefWidth="120.0" text="Event" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_guides" layoutX="90.0" layoutY="238.0" onAction="#go_to_guides" prefHeight="53.0" prefWidth="135.0" text="Guides" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_logement" layoutX="97.0" layoutY="378.0" onAction="#go_to_logement" prefHeight="53.0" prefWidth="142.0" text="Logement" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_transport" layoutX="501.0" layoutY="289.0" onAction="#go_to_transport" prefHeight="53.0" prefWidth="135.0" text="Transport" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_panier" layoutX="510.0" layoutY="108.0" onAction="#go_to_panier" prefHeight="53.0" prefWidth="135.0" text="Materiels" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_espece" layoutX="97.0" layoutY="110.0" onAction="#go_to_espece" prefHeight="48.0" prefWidth="120.0" text="Véhicule" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_espece_tazz" layoutX="519.0" layoutY="460.0" onAction="#go_to_tazz_espece" text="Espéce" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+   </children>
+</AnchorPane>

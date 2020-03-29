@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="628.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmldesktop.User_acceuilController">
+   <children>
+      <ImageView fitHeight="704.0" fitWidth="955.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@photo-1525779350160-30931cbc2aac.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btn_user_event" layoutX="296.0" layoutY="128.0" onAction="#go_to_user_event" prefHeight="57.0" prefWidth="158.0" text="Evénements" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_user_logemet" layoutX="299.0" layoutY="268.0" onAction="#go_to_user_logement" prefHeight="57.0" prefWidth="152.0" text="Logement" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_user_espece" layoutX="303.0" layoutY="403.0" onAction="#go_to_user_espece" prefHeight="57.0" prefWidth="145.0" text="Espece" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_panier_user" layoutX="310.0" layoutY="501.0" onAction="#go_to_panier_user" prefHeight="57.0" prefWidth="129.0" text="Panier" textFill="#2339a8">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_transport_user" layoutX="685.0" layoutY="42.0" onAction="#go_to_transport_user" opacity="0.0" text="Transport" />
+   </children>
+</AnchorPane>

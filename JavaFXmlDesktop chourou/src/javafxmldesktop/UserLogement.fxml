@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="628.0" prefWidth="889.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmldesktop.UserLogementController">
+    <stylesheets>
+        <URL value="@fxml.css" />
+    </stylesheets>
+   <children>
+      <JFXTabPane prefHeight="627.0" prefWidth="889.0">
+         <tabs>
+          <Tab text="Logements">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="828.0">
+                     <children>
+                        <ImageView fitHeight="605.0" fitWidth="900.0" opacity="0.44" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@photo-1525779350160-30931cbc2aac.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="label_rafrichir_u" layoutX="502.0" layoutY="445.0" onMouseClicked="#label_rafraichir_clicked" prefHeight="137.0" prefWidth="370.0" />
+                        <JFXListView fx:id="liste_nom" layoutX="14.0" layoutY="33.0" onMouseClicked="#liste_view_user_clicked" prefHeight="505.0" prefWidth="200.0" />
+                        <JFXTextField fx:id="tf_rechercheLieu" layoutX="255.0" layoutY="501.0" prefHeight="25.0" prefWidth="144.0" promptText="lieu" />
+                        <JFXButton fx:id="btn_rechercherLieu" layoutX="243.0" layoutY="533.0" onAction="#rechercherLieu" prefHeight="25.0" prefWidth="154.0" styleClass="button4" text="rechercher" textFill="#1e9779">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font></JFXButton>
+                        <JFXCheckBox fx:id="prix_u" layoutX="14.0" layoutY="558.0" onMouseClicked="#prix_croissant_clicked" prefHeight="18.0" prefWidth="198.0" text="prix croissant" underline="true">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></JFXCheckBox>
+                        <AnchorPane fx:id="pane_reserver" layoutX="222.0" layoutY="11.0" prefHeight="417.0" prefWidth="648.0">
+                           <children>
+                              <ImageView fx:id="image_reserver" fitHeight="367.0" fitWidth="283.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
+                              <JFXTextArea fx:id="ta_descriptionAff" layoutX="314.0" layoutY="16.0" prefHeight="118.0" prefWidth="309.0">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </JFXTextArea>
+                              <Label fx:id="prix_label" layoutX="315.0" layoutY="162.0" prefHeight="30.0" prefWidth="43.0" text="PRIX:" underline="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lieu_label" layoutX="315.0" layoutY="192.0" prefHeight="30.0" prefWidth="44.0" text="LIEU:" underline="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton fx:id="btn_reserverLog" layoutX="507.0" layoutY="381.0" onAction="#reserverLog" prefHeight="25.0" prefWidth="157.0" text="Reserver" textFill="#269478">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </JFXButton>
+                              <Label fx:id="lab_prixAff" layoutX="354.0" layoutY="162.0" prefHeight="30.0" prefWidth="120.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lab_lieuAff" layoutX="354.0" layoutY="192.0" prefHeight="30.0" prefWidth="144.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="497.0" layoutY="267.0" prefHeight="17.0" prefWidth="51.0" text="Arrivée" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="497.0" layoutY="304.0" text="Départ" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <JFXDatePicker fx:id="tf_reserverDateA" layoutX="315.0" layoutY="260.0" onMouseClicked="#a_partir_date" />
+                              <JFXDatePicker fx:id="tf_reserverDateD" layoutX="315.0" layoutY="294.0" />
+                              <JFXTextField fx:id="tf_reserverNbrChamb" layoutX="315.0" layoutY="338.0" prefHeight="25.0" prefWidth="144.0" promptText="Nombre chamb à réserver" />
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="lab_nom" layoutX="327.0" layoutY="-7.0" prefHeight="18.0" prefWidth="139.0" underline="true">
+                           <font>
+                              <Font name="System Bold Italic" size="25.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="button_back_acceuill" layoutX="131.0" layoutY="555.0" onAction="#button_back_acceuil_clicked" prefHeight="25.0" prefWidth="83.0" text="RETOUR" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Mes Réservations">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="587.0" fitWidth="889.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@photo-1525779350160-30931cbc2aac.jpg" />
+                           </image>
+                        </ImageView>
+                        <TableView fx:id="table_reservation" layoutX="9.0" layoutY="14.0" opacity="0.5" prefHeight="263.0" prefWidth="866.0">
+                           <columns>
+                              <TableColumn fx:id="col_nom" prefWidth="129.0" text="Nom" />
+                              <TableColumn fx:id="col_lieu" prefWidth="153.0" text="Lieu" />
+                              <TableColumn fx:id="col_prix" minWidth="8.0" prefWidth="113.0" text="prixNuite" />
+                              <TableColumn fx:id="col_dateA" minWidth="0.0" prefWidth="173.0" text="date Arrivée" />
+                              <TableColumn fx:id="col_dateD" prefWidth="164.0" text="date Départ" />
+                              <TableColumn fx:id="col_nbrChamb" prefWidth="133.0" text="nbr chamb" />
+                           </columns>
+                        </TableView>
+                        <JFXButton fx:id="btn_rechercherRes" layoutX="14.0" layoutY="479.0" onAction="#rechercherRes" prefHeight="25.0" prefWidth="161.0" text="rechercher" textFill="#239075">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font></JFXButton>
+                        <JFXTextField fx:id="tf_rechercheLieu1" layoutX="13.0" layoutY="427.0" prefHeight="25.0" prefWidth="144.0" promptText="lieu" />
+                        <JFXButton fx:id="btn_supprimerRes" layoutX="491.0" layoutY="396.0" onAction="#supprimerRes" prefHeight="25.0" prefWidth="161.0" text="supprimer" textFill="#239075">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

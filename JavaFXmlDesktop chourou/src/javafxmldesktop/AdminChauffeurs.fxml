@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="628.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmldesktop.AdminChauffeursController">
+   <children>
+      <JFXTextField />
+      <JFXTabPane>
+         <tabs>
+          <Tab text="Ajouter chauffeur">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="692.0" prefWidth="1107.0">
+                     <children>
+                        <ImageView fx:id="img_fondChauffeur" fitHeight="734.0" fitWidth="1134.0" layoutY="-10.0" opacity="0.46" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/img1.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ImageView>
+                        <TableView fx:id="tab_AfficherChauffeursAd1" layoutX="346.0" onMouseClicked="#selectionnerChauffeur1" prefHeight="359.0" prefWidth="617.0">
+                          <columns>
+                            <TableColumn fx:id="col_cin1" prefWidth="123.0" text="cin" />
+                            <TableColumn fx:id="col_nom1" prefWidth="137.0" text="nom" />
+                              <TableColumn fx:id="col_prenom1" prefWidth="134.0" text="prenom" />
+                              <TableColumn fx:id="col_telephone1" prefWidth="198.0" text="telephone" />
+                          </columns>
+                        </TableView>
+                        <ImageView fitHeight="88.0" fitWidth="98.0" layoutX="14.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/unnamed.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btn_TriChauffeursNom" layoutX="970.0" layoutY="379.0" mnemonicParsing="false" onAction="#triChauffeursNom" prefHeight="47.0" prefWidth="126.0" text="Trier par nom" />
+                        <Button fx:id="btn_rechercheChauffeur" layoutX="770.0" layoutY="383.0" minWidth="43.0" mnemonicParsing="false" onAction="#rechercheChauffeur" prefHeight="39.0" prefWidth="125.0" text="Recherche" />
+                        <Button fx:id="btn_pdfChauff" layoutX="14.0" layoutY="487.0" mnemonicParsing="false" onAction="#pdfChauff" opacity="0.0" prefHeight="88.0" prefWidth="110.0" text="creer pdf" />
+                        <JFXTextField fx:id="tf_cinAjouter" focusColor="#30a78b" layoutX="31.0" layoutY="77.0" prefHeight="26.0" prefWidth="219.0" promptText="cin">
+                           <effect>
+                              <Shadow color="#0072ff" height="0.0" radius="0.0" width="0.0" />
+                           </effect></JFXTextField>
+                        <JFXTextField fx:id="tf_nomAjouter" focusColor="#30a78b" layoutX="32.0" layoutY="127.0" prefHeight="26.0" prefWidth="221.0" promptText="nom">
+                           <effect>
+                              <Shadow color="#0072ff" height="0.0" radius="0.0" width="0.0" />
+                           </effect></JFXTextField>
+                        <JFXTextField fx:id="tf_prenomAjouter" focusColor="#30a78b" layoutX="32.0" layoutY="179.0" prefHeight="26.0" prefWidth="216.0" promptText="prenom">
+                           <effect>
+                              <Shadow color="#0072ff" height="0.0" radius="0.0" width="0.0" />
+                           </effect></JFXTextField>
+                        <JFXTextField fx:id="tf_telAjouter" focusColor="#30a78b" layoutX="30.0" layoutY="239.0" prefHeight="26.0" prefWidth="224.0" promptText="telephone">
+                           <effect>
+                              <Shadow color="#0072ff" height="0.0" radius="0.0" width="0.0" />
+                           </effect></JFXTextField>
+                        <ImageView fitHeight="70.0" fitWidth="64.0" layoutX="535.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/1545.png" />
+                           </image>
+                           <effect>
+                              <Shadow color="#002d64" height="0.0" radius="0.0" width="0.0" />
+                           </effect>
+                        </ImageView>
+                        <JFXTextField fx:id="tf_rechercheChauffeur" layoutX="622.0" layoutY="387.0" promptText="Recherche" />
+                        <Button fx:id="btn_ajoutChauffeur" layoutX="30.0" layoutY="297.0" mnemonicParsing="false" onAction="#ajoutChauffeur" prefHeight="49.0" prefWidth="131.0" text="Ajouter chauffeur" />
+                        <ImageView fitHeight="50.0" fitWidth="47.0" layoutX="911.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/25756.png" />
+                           </image>
+                           <effect>
+                              <Shadow color="#002d64" height="0.0" radius="0.0" width="0.0" />
+                           </effect>
+                        </ImageView>
+                        <Button fx:id="retour_acceuil" layoutX="113.0" layoutY="542.0" mnemonicParsing="false" onAction="#retour_acceuil" prefHeight="25.0" prefWidth="135.0" text="RETOUR" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Modifier chauffeur">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="img_fondChauffeur11" fitHeight="598.0" fitWidth="1045.0" layoutY="14.0" onMouseClicked="#selectionnerChauffeur2" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/img1.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ImageView>
+                        <Label layoutX="47.0" layoutY="140.0" text="CIN du chauffeur à modifier :">
+                           <effect>
+                              <Shadow color="#0072ff" height="0.0" radius="0.0" width="0.0" />
+                           </effect></Label>
+                        <Label layoutX="47.0" layoutY="200.0" text="nouveau nom :">
+                           <effect>
+                              <Shadow color="#0072ff" height="0.0" radius="0.0" width="0.0" />
+                           </effect></Label>
+                        <Label layoutX="47.0" layoutY="276.0" text="nouveau prenom :">
+                           <effect>
+                              <Shadow color="#0072ff" height="0.0" radius="0.0" width="0.0" />
+                           </effect></Label>
+                        <Label layoutX="50.0" layoutY="344.0" text="nouveau numero telephone :">
+                           <effect>
+                              <Shadow color="#0072ff" height="0.0" radius="0.0" width="0.0" />
+                           </effect></Label>
+                        <TableView fx:id="tab_AfficherChauffeursAd2" layoutX="441.0" layoutY="11.0" onMouseClicked="#selectionnerChauffeur2" prefHeight="415.0" prefWidth="565.0">
+                          <columns>
+                            <TableColumn fx:id="col_cin2" prefWidth="75.0" text="cin" />
+                            <TableColumn fx:id="col_nom2" prefWidth="154.0" text="nom" />
+                              <TableColumn fx:id="col_prenom2" prefWidth="102.0" text="prenom" />
+                              <TableColumn fx:id="col_telephone2" prefWidth="168.0" text="telephone" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btn_modifChauffeurslct" layoutX="36.0" layoutY="429.0" mnemonicParsing="false" onAction="#modifonSelect" prefHeight="45.0" prefWidth="182.0" text="Modifier chauffeur" />
+                        <JFXTextField fx:id="tf_cinModif" layoutX="272.0" layoutY="137.0" />
+                        <JFXTextField fx:id="tf_nomModif" layoutX="272.0" layoutY="206.0">
+                           <effect>
+                              <Shadow color="#002d64" height="0.0" radius="0.0" width="0.0" />
+                           </effect></JFXTextField>
+                        <JFXTextField fx:id="tf_prenomModif" focusColor="#344e9a" layoutX="272.0" layoutY="272.0">
+                           <effect>
+                              <Shadow color="#002d64" height="0.0" radius="0.0" width="0.0" />
+                           </effect></JFXTextField>
+                        <JFXTextField fx:id="tf_telModif" layoutX="272.0" layoutY="340.0">
+                           <effect>
+                              <Shadow color="#002d64" height="0.0" radius="0.0" width="0.0" />
+                           </effect></JFXTextField>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Supprimer Chauffeur">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="img_fondChauffeur1" fitHeight="759.0" fitWidth="1114.0" layoutX="-3.0" layoutY="7.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/img1.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fitHeight="162.0" fitWidth="160.0" layoutX="394.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/corbeille-windows.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btn_supprimerAdminSlct" layoutX="352.0" layoutY="295.0" mnemonicParsing="false" onAction="#deleteonSelect" opacity="0.0" prefHeight="155.0" prefWidth="244.0" text="Supprimer chauffeur" />
+                        <TableView fx:id="tab_AfficherChauffeursAd3" layoutX="1.0" layoutY="-1.0" onMouseClicked="#selectionnerChauffeur3" prefHeight="293.0" prefWidth="1046.0">
+                          <columns>
+                            <TableColumn fx:id="col_cin3" prefWidth="209.0" text="cin" />
+                            <TableColumn fx:id="col_nom3" prefWidth="208.0" text="nom" />
+                              <TableColumn fx:id="col_prenom3" prefWidth="263.0" text="prenom" />
+                              <TableColumn fx:id="col_telephone3" prefWidth="254.0" text="telephone" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>
