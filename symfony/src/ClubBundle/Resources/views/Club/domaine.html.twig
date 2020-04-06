@@ -1,0 +1,24 @@
+<table border="1">
+    <tr>
+        <td> id</td>
+        <td> nom </td>
+        <td> description </td>
+        <td> adresse </td>
+        <td> domaine</td>
+
+    </tr>
+    {% for i in listclubs %}
+        <tr>
+            <td> {{ i.id }} </td>
+            <td> {{ i.nom }} </td>
+            <td> {{ i.description }} </td>
+            <td> {{ i.adresse }} </td>
+            <td> {{ i.domaine }} </td>
+
+
+
+
+        </tr>
+    {% endfor %}
+
+</table>

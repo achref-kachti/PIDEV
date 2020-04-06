@@ -1,0 +1,62 @@
+Materiel:
+    type: entity
+    table: materiel
+    id:
+        refmat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: REFMAT
+            generator:
+                strategy: IDENTITY
+    fields:
+        nommat:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: NOMMAT
+        catmat:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: CATMAT
+        descmat:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: DESCMAT
+        typemat:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: TYPEMAT
+        prixmat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: PRIXMAT
+        qtmat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: QTMAT
+        imagemat:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+            column: IMAGEMAT
+    lifecycleCallbacks: {  }

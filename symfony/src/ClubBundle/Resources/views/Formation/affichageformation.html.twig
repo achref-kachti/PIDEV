@@ -1,0 +1,28 @@
+<table border="1">
+    <tr>
+        <td> ref</td>
+        <td> titre </td>
+        <td> description </td>
+        <td> date_debut </td>
+        <td> date_fin</td>
+        <td> nb_participant</td>
+        <td> id_Club</td>
+
+    </tr>
+    {% for i in clubs %}
+        <tr>
+            <td> {{ i.ref }} </td>
+            <td> {{ i.titre }} </td>
+            <td> {{ i.description }} </td>
+            <td> {{ i.dateDebut|date }} </td>
+            <td> {{ i.dateFin|date }} </td>
+            <td> {{ i.nbParticipant }} </td>
+            <td> {{ i.club.nom }} </td>
+
+
+
+
+        </tr>
+    {% endfor %}
+
+</table>

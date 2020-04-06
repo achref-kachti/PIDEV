@@ -1,0 +1,60 @@
+club_homepage:
+    path:     /
+    defaults: { _controller: ClubBundle:Default:index }
+
+club_indexpage:
+    path:     /vie # c'est juste le nom li bech thotou fel lien
+    defaults: { _controller: ClubBundle:Club:index }
+
+
+club_homepage2:
+    path:     /home #par rapport lel affichage
+    defaults: { _controller: ClubBundle:Club:homePage }  #Club par rapport au controller: homePage par rapport à la fct homePageAction()
+
+esprit_read:
+    path:     /read/{nom} # nom c'est le parametre de la fct readAction()
+    defaults: { _controller: ClubBundle:Club:read }
+
+club_tableau:
+    path:     /detail
+    defaults: { _controller: ClubBundle:Club:list }
+
+club_show:
+    path:     /show/{titre}/{ref}
+    defaults: { _controller: ClubBundle:Club:show }
+
+club_read1:
+    path:     /afficher
+    defaults: { _controller: ClubBundle:Club:affichertab }
+
+club_remove:
+    path:     /supprimer/{id}
+    defaults: { _controller: ClubBundle:Club:supprimer }
+
+club_ajout:
+    path:     /ajouter
+    defaults: { _controller: ClubBundle:Club:create }
+
+club_modif:
+    path:     /modif/{id}
+    defaults: { _controller: ClubBundle:Club:modif}
+
+club_update:
+    path:     /update/{id}
+    defaults: { _controller: ClubBundle:Club:update}
+
+formation_aff:
+    path:     /afficherform
+    defaults: { _controller: ClubBundle:Formation:afficherformations}
+
+formation_cr:
+    path:     /ajoutform
+    defaults: { _controller: ClubBundle:Formation:create}
+
+formation_search:
+    path:     /search
+    defaults: { _controller: ClubBundle:Formation:search}
+
+club_domaine:
+    path:     /domaine
+    defaults: { _controller: ClubBundle:Club:trouverdomaine }

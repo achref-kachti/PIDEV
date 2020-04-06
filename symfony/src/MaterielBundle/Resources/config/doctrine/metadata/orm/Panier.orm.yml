@@ -1,0 +1,47 @@
+Panier:
+    type: entity
+    table: panier
+    indexes:
+        panier_ibfk_1:
+            columns:
+                - refmat
+        panier_ibfk_2:
+            columns:
+                - iduser
+    id:
+        idach:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        qtach:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        refmat:
+            targetEntity: Materiel
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                refmat:
+                    referencedColumnName: REFMAT
+            orphanRemoval: false
+        iduser:
+            targetEntity: Users
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                iduser:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

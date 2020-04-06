@@ -1,0 +1,48 @@
+
+
+<table border="1">
+    <tr>
+        <td> reference</td>
+        <td> nom </td>
+        <td> categorie </td>
+        <td> description </td>
+        <td> type </td>
+        <td> prix </td>
+        <td> quantité </td>
+        <td> image </td>
+
+    </tr>
+    {% for i in materiel %}
+        <tr>
+            <td> {{ i.refmat }} </td>
+            <td> {{ i.nommat }} </td>
+            <td> {{ i.catmat }} </td>
+            <td> {{ i.descmat }} </td>
+            <td> {{ i.typemat }} </td>
+            <td> {{ i.prixmat }} </td>
+            <td> {{ i.qtmat }} </td>
+            <td> {{ i.imagemat }} </td>
+            <td>
+                <a href="{{ path('materiel_supprimer',
+                    { 'id':i.refmat }) }}">
+                    <button> Supprimer </button>
+                </a>
+            </td>
+
+            <td>
+                <a href="{{ path('materiel_modifier',
+                    { 'id':i.refmat}) }}">
+                    <button> Modifier </button>
+                </a>
+            </td>
+            {# <td>
+                 <a href="{{ path('club_update',
+                     { 'id':i.id }) }}">
+                     <button> Update </button>
+                 </a>
+             </td>  #}
+
+        </tr>
+    {% endfor %}
+
+</table>

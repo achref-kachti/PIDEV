@@ -1,0 +1,83 @@
+materiel_homepage:
+    path:     /
+    defaults: { _controller: MaterielBundle:Default:index }
+
+materiel_index:
+    path:     /channel
+    defaults: { _controller: MaterielBundle:Materiel:index }
+
+
+materiel_afficher:
+    path:     /affichermat
+    defaults: { _controller: MaterielBundle:Materiel:affichertab }
+
+materiel_afficherfront:
+    path:     /afficherfront
+    defaults: { _controller: MaterielBundle:Materiel:afficherfront }
+
+materiel_ajouter:
+    path:     /ajoutermat
+    defaults: { _controller: MaterielBundle:Materiel:ajoutermat }
+
+materiel_supprimer:
+    path:     /supprimermat/{id}
+    defaults: { _controller: MaterielBundle:Materiel:supprimermat }
+
+materiel_modifier:
+    path:     /modifiermat/{id}
+    defaults: { _controller: MaterielBundle:Materiel:modifiermat }
+
+div_chart:
+    path:     /stat
+    defaults: { _controller: MaterielBundle:Materiel:statistiquemat }
+
+
+
+
+
+
+users_read1:
+    path:     /afficheruser
+    defaults: { _controller: MaterielBundle:Users:affichertab }
+
+users_remove:
+    path:     /supprimeruser/{id}
+    defaults: { _controller: MaterielBundle:Users:supprimer }
+
+users_ajout:
+    path:     /ajouteruser
+    defaults: { _controller: MaterielBundle:Users:create }
+
+users_modif:
+    path:     /modifuser/{id}
+    defaults: { _controller: MaterielBundle:Users:modif}
+
+
+
+
+
+
+
+panier_afficher:
+    path:     /afficherpanier
+    defaults: { _controller: MaterielBundle:Panier:afficherpanier }
+
+panier_userafficher:
+    path:     /afficherpanieruser
+    defaults: { _controller: MaterielBundle:Panier:afficherpanieruser }
+
+panier_usersupprimer:
+    path:     /supprimerpanier/{id}
+    defaults: { _controller: MaterielBundle:Panier:supprimerpanieruser }
+
+panier_userajouter:
+    path:     /ajouterpanier/{id}
+    defaults: { _controller: MaterielBundle:Panier:ajouterpanier}
+
+template_aff:
+    path:     /template
+    defaults: { _controller: MaterielBundle:Materiel:template}
+
+templatefront_aff:
+    path:     /templatefront
+    defaults: { _controller: MaterielBundle:Materiel:templatefront}

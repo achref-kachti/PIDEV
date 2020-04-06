@@ -1,0 +1,13 @@
+materiel:
+    resource: "@MaterielBundle/Resources/config/routing.yml"
+    prefix:   /Materiel
+
+club:
+    resource: "@ClubBundle/Resources/config/routing.yml"
+    prefix:   /Club
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

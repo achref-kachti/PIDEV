@@ -1,0 +1,28 @@
+{% if f==null %}
+    Le tableau est vide.</br>
+{% else %}
+<table border="1">
+  <tr>
+      <td> Ref </td>
+      <td> Titre </td>
+      <td> Action </td>
+
+  </tr>
+    {% for i in f %}
+    <tr>
+        <td> {{ i.ref }} </td>
+        <td> {{ i.titre|upper }} </td>
+        <td>
+            <a href="{{ path('club_show',
+             { 'ref':i.ref,'titre':i.titre }) }}">#lien vers la page show
+                <button> Participer </button>
+            </a>
+        </td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+{% endif %}
+Le nombre de formations est : {{ f|length }}
+

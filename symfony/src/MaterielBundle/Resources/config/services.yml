@@ -1,0 +1,4 @@
+services:
+#    materiel.example:
+#        class: MaterielBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,12 @@
+{% if club is defined %}
+    <div class="inventorysearch">
+        <form action="{{ path('club_update', {'id' : club.id}) }}" method="POST" >
+            <input type="text" name="nom" value="{{ club.nom }}" ><br />
+            <input type="text" name="descr" value="{{ club.description }}" ><br />
+            <input type="text" name="adr"  value="{{ club.adresse }}"><br />
+            <input type="text" name="domaine" value="{{ club.domaine }}"><br />
+
+            <button type="submit" name="submit">Update</button>
+        </form>
+    </div>
+{% endif %}

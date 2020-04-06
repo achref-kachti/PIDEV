@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+
+
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Materiel</h4>
+                            <form class="form-sample" action="{{ path('materiel_afficher') }}" method="post" name="f" >
+                                <p class="card-description">
+                                <center>  rechercher materiel  </center>
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Categorie</label>
+                                            <div class="col-sm-9">
+                                                <select name="catmat" id="catmat" class="form-control">
+                                                    <option>chasse</option>
+                                                    <option>peche</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Type</label>
+                                            <div class="col-sm-9">
+                                                <select name="typemat" id="typemat" class="form-control">
+                                                    <option>vente</option>
+                                                    <option>location</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nom materiel</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name="nommat">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <br>
+                                <center>
+                                    <button type="submit" class="btn btn-success mr-2" name="rechercher" value="rechercher">rechercher</button>
+                                    <button class="btn btn-success mr-2" name="trier" value="trierprix">trier/prix</button>
+
+
+                                </center>
+                                <br>
+
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Materiel</h4>
+                            <p class="card-description">
+
+                                <code>..</code>
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th> reference</th>
+                                        <th> nom </th>
+                                        <th> categorie </th>
+                                        <th> description </th>
+                                        <th> type</th>
+                                        <th> prix</th>
+                                        <th> quantité</th>
+                                        <th> image</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in mat %}
+                                        <tr>
+                                            <td> {{ i.refmat }} </td>
+                                            <td> {{ i.nommat }} </td>
+                                            <td> {{ i.catmat }} </td>
+                                            <td> {{ i.descmat }} </td>
+                                            <td> {{ i.typemat }} </td>
+                                            <td> {{ i.prixmat }} </td>
+                                            <td> {{ i.qtmat }} </td>
+                                            <td> {{ i.imagemat }} </td>
+                                            <td>
+                                                <a href="{{ path('materiel_supprimer',
+                                                    { 'id':i.refmat }) }}">
+                                                    <button class="btn btn-success mr-2"> Supprimer </button>
+                                                </a>
+                                            </td>
+
+                                            <td>
+                                                <a href="{{ path('materiel_modifier',
+                                                    { 'id':i.refmat}) }}">
+                                                    <button class="btn btn-success mr-2"> Modifier </button>
+                                                </a>
+                                            </td>
+
+
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+
+{% endblock %}
